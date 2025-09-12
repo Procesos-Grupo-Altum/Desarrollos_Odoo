@@ -1,0 +1,19 @@
+id,name,multiple,order,visible
+1,Unica respuesta,1,1,1
+2,Multiple respuesta,1,2,1
+3,Respuesta abierta,0,4,1
+4,Título sección,0,5,1
+5,Subtitulo,0,6,1
+6,Observaciones,0,7,0
+7,Fotografía,0,10,1
+8,Coordenada GPS,0,11,1
+9,Desplegable,1,3,1
+10,Datos,0,21,1
+11,Código de barras,0,12,1
+12,Fecha,0,8,1
+13,Firma,0,13,1
+14,Etiqueta NFC,0,16,1
+15,Hora,0,9,1
+16,Autocompletar,1,3,1
+17,Vínculo,0,17,1
+18,Email,0,20,1

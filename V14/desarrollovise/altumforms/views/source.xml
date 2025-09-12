@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_source_tree" model="ir.ui.view">
+        <field name="name">source.tree</field>
+        <field name="model">source</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="ID"/>
+                <field name="name" string="Nombre"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

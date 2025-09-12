@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--Menu 1-->
+        <!--Usuarios-->
+    <record id="action_open_user" model="ir.actions.act_window">
+        <field name="name">Usuarios</field>
+        <field name="res_model">user</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <!--Tipos de Usuario-->
+    <record id="action_open_authitem" model="ir.actions.act_window">
+        <field name="name">Tipos de Usuario</field>
+        <field name="res_model">authitem</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <!--Clientes-->
+    <record id="action_open_client" model="ir.actions.act_window">
+        <field name="name">Clientes</field>
+        <field name="res_model">client</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--source-->
+    <record id="action_open_source" model="ir.actions.act_window">
+        <field name="name">Fuente</field>
+        <field name="res_model">source</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--sector-->
+    <record id="action_open_sector" model="ir.actions.act_window">
+        <field name="name">Sector</field>
+        <field name="res_model">sector</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_principal" name="Altum Forms" web_icon="altumforms,static/img/altum_forms.jpeg"/>
+    <menuitem id="menu_horizontal" name="Configuración" parent="menu_principal"/>
+    <menuitem id="menu_vertical_principal1" name="Usuarios" parent="menu_horizontal" action="action_open_user"/>
+    <menuitem id="menu_vertical_principal2" name="Tipos de Usuario" parent="menu_horizontal" action="action_open_authitem"/>
+    <menuitem id="menu_vertical_principal3" name="Clientes" parent="menu_horizontal" action="action_open_client"/>
+    <menuitem id="menu_vertical_principal4" name="Fuente" parent="menu_horizontal" action="action_open_source"/>
+    <menuitem id="menu_vertical_principal5" name="Sector" parent="menu_horizontal" action="action_open_sector"/>
+
+
+
+    <!--Menu 2-->
+        <!--Preguntas-->
+    <record id="action_open_question" model="ir.actions.act_window">
+        <field name="name">Preguntas</field>
+        <field name="res_model">question</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <!--Tipo de Preguntas-->
+    <record id="action_open_question_type" model="ir.actions.act_window">
+        <field name="name">Tipo de Preguntas</field>
+        <field name="res_model">question_type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <!--Opcion de Preguntas-->
+    <record id="action_open_question_option" model="ir.actions.act_window">
+        <field name="name">Opcion de Preguntas</field>
+        <field name="res_model">question_option</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <!--Grupo Opcion de Preguntas-->
+    <record id="action_open_question_option_group" model="ir.actions.act_window">
+        <field name="name">Grupo de Opcion de Preguntas</field>
+        <field name="res_model">question_option_group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_horizontal2" name="Preguntas" parent="menu_principal"/>
+    <menuitem id="menu_vertical2" name="Preguntas" parent="menu_horizontal2" action="action_open_question"/>
+    <menuitem id="menu_vertical3" name="Tipo de Preguntas" parent="menu_horizontal2" action="action_open_question_type"/>
+    <menuitem id="menu_vertical4" name="Opción de Preguntas" parent="menu_horizontal2" action="action_open_question_option"/>
+    <menuitem id="menu_vertical5" name="Grupo de Opción de Preguntas" parent="menu_horizontal2" action="action_open_question_option_group"/>
+
+
+
+    <!--Formularios-->
+    <record id="action_open_question_answer_group" model="ir.actions.act_window">
+        <field name="name">Formulario de Respuestas</field>
+        <field name="res_model">question_answer_group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--Respuestas-->
+    <record id="action_open_question_answer" model="ir.actions.act_window">
+        <field name="name">Respuestas</field>
+        <field name="res_model">question_answer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_principal" name="Altum Forms" web_icon="altumforms,static/img/altum_forms.jpeg"/>
+    <menuitem id="menu_horizontal3" name="Resultados" parent="menu_principal"/>
+    <menuitem id="menu_vertical" name="Formulario de Respuestas" parent="menu_horizontal3" action="action_open_question_answer_group"/>
+    <menuitem id="menu_vertical1" name="Respuestas" parent="menu_horizontal3" action="action_open_question_answer"/>
+
+
+</odoo>

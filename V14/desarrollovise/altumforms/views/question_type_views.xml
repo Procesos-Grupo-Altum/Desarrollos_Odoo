@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista tipo árbol para question_type -->
+    <record id="view_question_type_tree" model="ir.ui.view">
+        <field name="name">question_type.tree</field>
+        <field name="model">question_type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="ID"/>
+                <field name="name" string="Nombre"/>
+                <field name="multiple" string="¿Múltiple?"/>
+                <field name="order" string="Orden"/>
+                <field name="visible" string="¿Visible?"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista tipo formulario para question_type
+    <record id="view_question_type_form" model="ir.ui.view">
+        <field name="name">question_type.form</field>
+        <field name="model">question_type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Detalles del Tipo de Pregunta">
+                        <field name="name" string="Nombre" readonly="1"/>
+                        <field name="multiple" string="¿Múltiple?" readonly="1"/>
+                        <field name="order" string="Orden" readonly="1"/>
+                        <field name="visible" string="¿Visible?" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>-->
+
+
+</odoo>

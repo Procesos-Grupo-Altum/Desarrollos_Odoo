@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pazysalvo_admin,pazysalvo.admin,pazysalvo.model_pazysalvo,group_pazysalvo_admin,1,1,1,1
+access_employee_user,Acceso a Empleados,model_hr_employee,group_pazysalvo_admin,1,1,1,1
+

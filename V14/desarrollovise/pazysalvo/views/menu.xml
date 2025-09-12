@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="action_open_pazysalvo" model="ir.actions.act_window">
+            <field name="name">Paz y Salvo</field>
+            <field name="res_model">pazysalvo</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_principal" name="Paz y Salvo" web_icon="pazysalvo,static/img/paz_y_salvo.gif"/>
+    <menuitem id="menu_horizontal" name="Paz y Salvo" parent="menu_principal"/>
+    <menuitem id="menu_vertical_pazysalvo" name="Paz y Salvo" parent="menu_horizontal" action="action_open_pazysalvo"/>
+</odoo>

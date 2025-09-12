@@ -1,0 +1,14 @@
+<!-- security/pazysalvo_rules.xml -->
+<odoo>
+  <record id="rule_hr_employee_read_pazysalvo" model="ir.rule">
+    <field name="name">HR Employee Read for Paz y Salvo</field>
+    <field name="model_id" ref="hr.model_hr_employee"/>
+    <field name="groups" eval="[(4, ref('pazysalvo.group_pazysalvo_admin'))]"/>
+    <!-- Permite leer empleados de sus compañías o sin compañía -->
+    <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', user.company_ids.ids)]</field>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+  </record>
+</odoo>

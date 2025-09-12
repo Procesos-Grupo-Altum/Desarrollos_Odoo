@@ -1,0 +1,19 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_altumforms_user,Acceso a Usuarios,model_user,group_altumforms_admin,1,1,1,1
+access_altumforms_authitem,Acceso a Tipos de Usuario,model_authitem,group_altumforms_admin,1,1,1,1
+access_altumforms_client,Acceso a Clientes,model_client,group_altumforms_admin,1,1,1,1
+access_altumforms_question,Acceso a Preguntas,model_question,group_altumforms_admin,1,1,1,1
+access_altumforms_question_type,Acceso a Tipos de Pregunta,model_question_type,group_altumforms_admin,1,1,1,1
+access_altumforms_question_option,Acceso a Opciones de Pregunta,model_question_option,group_altumforms_admin,1,1,1,1
+access_altumforms_question_option_group,Acceso a Grupo de Pregunta,model_question_option_group,group_altumforms_admin,1,1,1,1
+access_altumforms_source,Acceso a Grupo de Fuente,model_source,group_altumforms_admin,1,1,1,1
+access_altumforms_sector,Acceso a Grupo de Sector,model_sector,group_altumforms_admin,1,1,1,1
+access_altumforms_questions_answer,Acceso a Respuestas,model_question_answer,group_altumforms_admin,1,1,1,1
+access_altumforms_questions_answer_group,Acceso a Formulario de Respuestas,model_question_answer_group,group_altumforms_admin,1,1,1,1
+
+
+
+
+
+
+
