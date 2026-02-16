@@ -31,6 +31,14 @@
           <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_relacion_trd" model="ir.actions.act_window">
+          <field name="name">Relación TRD</field>
+          <field name="res_model">relacion.trd</field>
+          <field name="view_mode">tree,form</field>
+    </record>
+
+
+
     <!-- ====== ACCIÓN ISS ====== -->
 <record id="action_gestion_iss" model="ir.actions.act_window">
     <field name="name">Índice de Series y Subseries Documentales (ISS)</field>
@@ -83,6 +91,9 @@
 </record>
 
 
+
+
+
     <!-- Menú raíz -->
     <menuitem id="menu_gestion_documentos_root" name="Gestión Documentos" web_icon="gestion_documentos,static/img/imagen1.gif"/>
 
@@ -121,7 +132,16 @@
               name="Soportes"
               parent="menu_gd_configuracion"
               action="action_soportes"
-              sequence="40"/>
+              sequence="50"/>
+
+    <menuitem id="menu_gd_config_soportes"
+              name="Relación TRD"
+              parent="menu_gd_configuracion"
+              action="action_relacion_trd"
+              sequence="60"/>
+
+
+
 
     <!-- ========= PESTAÑA ISS ========= -->
     <menuitem id="menu_gd_iss"

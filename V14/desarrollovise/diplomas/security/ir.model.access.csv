@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_diploma_user,diploma.user,model_diploma,base.group_user,1,1,1,0
+access_diploma_manager,diploma.manager,model_diploma,base.group_erp_manager,1,1,1,1

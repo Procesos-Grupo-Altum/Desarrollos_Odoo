@@ -21,12 +21,38 @@
     <field name="implied_ids" eval="[(4, ref('gestion_documentos.group_gd_juridico_usuario'))]"/>
   </record>
 
+<!--  Grupos TRD -->
+  <record id="group_trd_administrador" model="res.groups">
+    <field name="name">Vise TRD Administrador</field>
+    <field name="category_id" ref="module_category_gestion_documentos"/>
+    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+
+  </record>
+
+  <record id="group_trd_analista" model="res.groups">
+    <field name="name">Vise TRD Analista</field>
+    <field name="category_id" ref="module_category_gestion_documentos"/>
+    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+
+  </record>
+
+  <record id="group_trd_usuario" model="res.groups">
+    <field name="name">Vise TRD Usuario</field>
+    <field name="category_id" ref="module_category_gestion_documentos"/>
+    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+
+  </record>
+
   <!-- Grupo “Administrador” (hereda de Usuario) -->
   <record id="group_gd_juridico_administrador" model="res.groups">
     <field name="name">Vise Jurídico Administrador</field>
     <field name="category_id" ref="module_category_gestion_documentos"/>
     <field name="implied_ids" eval="[
-        (4, ref('gestion_documentos.group_gd_juridico_analista'))]"/>
+        (4, ref('gestion_documentos.group_gd_juridico_analista')),
+        (4, ref('gestion_documentos.group_gd_juridico_usuario')),
+        (4, ref('gestion_documentos.group_trd_administrador')),
+        (4, ref('gestion_documentos.group_trd_analista')),
+        (4, ref('gestion_documentos.group_trd_usuario')),]"/>
   </record>
 
 </odoo>

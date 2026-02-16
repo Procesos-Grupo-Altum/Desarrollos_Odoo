@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_certificado_seguridad_user,certificado.seguridad.user,model_certificado_seguridad,base.group_user,1,1,1,0
+access_certificado_seguridad_manager,certificado.seguridad.manager,model_certificado_seguridad,base.group_erp_manager,1,1,1,1

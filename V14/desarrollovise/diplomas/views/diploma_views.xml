@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_diploma_tree" model="ir.ui.view">
+        <field name="name">diploma.tree</field>
+        <field name="model">diploma</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'completado'" decoration-info="state == 'procesando'">
+                <field name="name"/>
+                <field name="nombre_completo"/>
+                <field name="institucion_educativa"/>
+                <field name="titulo_obtenido"/>
+                <field name="fecha_graduacion"/>
+                <field name="state" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_diploma_form" model="ir.ui.view">
+        <field name="name">diploma.form</field>
+        <field name="model">diploma</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="procesar_diploma" string="📷 Procesar con IA" type="object" class="oe_highlight" attrs="{'invisible': [('state', '=', 'procesando')]}"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group string="Carga de Documentos (Diploma y Acta)">
+                        <group>
+                            <field name="archivo_uno_subida" filename="nombre_uno" widget="binary" string="Archivo 1 (Diploma)"/>
+                            <field name="nombre_uno" invisible="1"/><field name="attachment_uno_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="archivo_dos_subida" filename="nombre_dos" widget="binary" string="Archivo 2 (Acta)"/>
+                            <field name="nombre_dos" invisible="1"/><field name="attachment_dos_id" invisible="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+
+                        <page string="👤 Resultados del Análisis" name="results" attrs="{'invisible': [('state', '=', 'borrador')]}">
+                            <group>
+                                <group string="Identificación">
+                                    <field name="nombre_completo"/>
+                                    <field name="numero_identificacion"/>
+                                </group>
+                                <group string="Académico">
+                                    <field name="institucion_educativa"/>
+                                    <field name="titulo_obtenido"/>
+                                    <field name="codigo_dane"/>
+                                </group>
+                            </group>
+                            <group string="Registro y Ubicación">
+                                <group>
+                                    <field name="fecha_graduacion"/>
+                                    <field name="ciudad_grado"/>
+                                </group>
+                                <group>
+                                    <field name="numero_acta"/>
+                                    <field name="numero_libro"/>
+                                    <field name="numero_folio"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="⚙️ Logs Técnicos">
+                            <group>
+                                <field name="error_mensaje" attrs="{'invisible': [('error_mensaje', '=', False)]}"/>
+                                <field name="texto_extraido"/>
+                            </group>
+                        </page>
+
+                        <page string="📄 Visores de Documentos" name="viewers">
+                            <div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+                                <div attrs="{'invisible': [('attachment_uno_id', '=', False)]}">
+                                    <separator string="Documento 1: Diploma"/>
+                                    <field name="visor_uno_html" widget="html" nolabel="1"/>
+                                </div>
+                                <div attrs="{'invisible': [('attachment_dos_id', '=', False)]}">
+                                    <separator string="Documento 2: Acta / Certificado"/>
+                                    <field name="visor_dos_html" widget="html" nolabel="1"/>
+                                </div>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_diploma" model="ir.actions.act_window">
+        <field name="name">Gestión de Diplomas</field>
+        <field name="res_model">diploma</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_diploma_main"
+          name="Diplomas y Actas"
+          parent="transcriptores_gemini.menu_modulos_hijos"
+          action="action_diploma"
+          sequence="30"/>
+</odoo>

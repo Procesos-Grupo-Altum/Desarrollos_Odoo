@@ -1,0 +1,647 @@
+import base64
+import json
+import logging
+import tempfile
+import os
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError, UserError
+import requests
+import fitz  # PyMuPDF para PDFs
+
+_logger = logging.getLogger(__name__)
+
+
+class CedulaExtractor(models.Model):
+    _name = 'cedula.extractor'
+    _description = 'Extractor de Cédulas Colombianas'
+    _rec_name = 'nombre_completo'
+
+    # ==============================================
+    # CAMPOS PRINCIPALES
+    # ==============================================
+
+    name = fields.Char(
+        string='Referencia',
+        default=lambda self: self._default_name(),
+        readonly=True,
+        copy=False,
+        help="Referencia única del registro (CC + Nombre)"
+    )
+
+    estado = fields.Selection([
+        ('borrador', 'Borrador'),
+        ('procesando', 'Procesando'),
+        ('completado', 'Completado'),
+        ('error', 'Error'),
+    ], string='Estado', default='borrador')
+
+    # Campos para el archivo
+    archivo_original = fields.Binary('Subir Imagen/PDF', required=True)
+    nombre_archivo = fields.Char('Nombre del Archivo')
+    tipo_archivo = fields.Selection([
+        ('image', 'Imagen'),
+        ('pdf', 'PDF'),
+    ], string='Tipo de Archivo', compute='_compute_tipo_archivo', store=True)
+
+    # ==============================================
+    # CAMPOS DE DATOS EXTRAÍDOS
+    # ==============================================
+
+    numero_cedula = fields.Char(
+        string='Número de Cédula',
+        readonly=True,
+        help="Formato: XX.XXX.XXX"
+    )
+
+    # NOMBRES Y APELLIDOS
+    nombres_crudo = fields.Char(
+        string='Nombres (crudo)',
+        readonly=True,
+        help="Nombres en MAYÚSCULAS desde Gemini"
+    )
+
+    apellidos_crudo = fields.Char(
+        string='Apellidos (crudo)',
+        readonly=True,
+        help="Apellidos en MAYÚSCULAS desde Gemini"
+    )
+
+    nombres = fields.Char(
+        string='Nombres',
+        readonly=True,
+        compute='_compute_nombres_formateados',
+        store=True,
+        help="Ejemplo: Juan Pablo"
+    )
+
+    apellidos = fields.Char(
+        string='Apellidos',
+        readonly=True,
+        compute='_compute_nombres_formateados',
+        store=True,
+        help="Ejemplo: Cifuentes Alvira"
+    )
+
+    nombre_completo = fields.Char(
+        string='Nombre Completo',
+        readonly=True,
+        compute='_compute_nombre_completo',
+        store=True,
+        help="Ejemplo: Juan Pablo Cifuentes Alvira"
+    )
+
+    # FECHAS
+    fecha_nacimiento = fields.Char(
+        string='Fecha de Nacimiento',
+        readonly=True,
+        help="Formato: DD-MMM-AAAA"
+    )
+
+    # LUGARES SEPARADOS
+    lugar_nacimiento_original = fields.Char(
+        string='Lugar Nacimiento Original',
+        readonly=True,
+        help="Texto completo extraído de la cédula"
+    )
+
+    municipio_nacimiento = fields.Char(
+        string='Municipio de Nacimiento',
+        readonly=True,
+        compute='_compute_separar_lugares',
+        store=True
+    )
+
+    departamento_nacimiento = fields.Char(
+        string='Departamento de Nacimiento',
+        readonly=True,
+        compute='_compute_separar_lugares',
+        store=True
+    )
+
+    # DATOS FÍSICOS
+    estatura = fields.Char(
+        string='Estatura',
+        readonly=True,
+        help="Ejemplo: 1.77 m"
+    )
+
+    grupo_sanguineo = fields.Char(
+        string='Grupo Sanguíneo',
+        readonly=True,
+        help="Ejemplo: AB+"
+    )
+
+    sexo = fields.Selection([
+        ('M', 'Masculino'),
+        ('F', 'Femenino')
+    ], string='Sexo', readonly=True)
+
+    # EXPEDICIÓN
+    fecha_expedicion = fields.Char(
+        string='Fecha de Expedición',
+        readonly=True
+    )
+
+    lugar_expedicion_original = fields.Char(
+        string='Lugar Expedición Original',
+        readonly=True,
+        help="Texto completo extraído de la cédula"
+    )
+
+    municipio_expedicion = fields.Char(
+        string='Municipio de Expedición',
+        readonly=True,
+        compute='_compute_separar_lugares',
+        store=True
+    )
+
+    departamento_expedicion = fields.Char(
+        string='Departamento de Expedición',
+        readonly=True,
+        compute='_compute_separar_lugares',
+        store=True
+    )
+
+    # ==============================================
+    # CAMPOS TÉCNICOS
+    # ==============================================
+    respuesta_gemini = fields.Text('Respuesta Gemini', readonly=True)
+    error_mensaje = fields.Text('Mensaje de Error', readonly=True)
+    imagen_procesada = fields.Binary('Imagen Procesada', readonly=True)
+
+    # ==============================================
+    # MÉTODOS COMPUTE
+    # ==============================================
+
+    @api.model
+    def _default_name(self):
+        """Genera referencia automática cuando se crea el registro"""
+        return self.env['ir.sequence'].next_by_code('cedula.extractor') or _('Nuevo')
+
+    @api.depends('nombre_archivo')
+    def _compute_tipo_archivo(self):
+        for record in self:
+            if record.nombre_archivo:
+                ext = record.nombre_archivo.lower().split('.')[-1]
+                if ext in ['pdf']:
+                    record.tipo_archivo = 'pdf'
+                elif ext in ['jpg', 'jpeg', 'png', 'bmp', 'gif', 'tiff', 'webp']:
+                    record.tipo_archivo = 'image'
+                else:
+                    record.tipo_archivo = False
+            else:
+                record.tipo_archivo = False
+
+    @api.depends('nombres_crudo')
+    def _compute_nombres_formateados(self):
+        """Formatea nombres y apellidos con mayúscula inicial"""
+        for record in self:
+            if record.nombres_crudo:
+                record.nombres = self._formatear_mayuscula_inicial(record.nombres_crudo)
+            else:
+                record.nombres = False
+
+            if record.apellidos_crudo:
+                record.apellidos = self._formatear_mayuscula_inicial(record.apellidos_crudo)
+            else:
+                record.apellidos = False
+
+    @api.depends('numero_cedula', 'nombres', 'apellidos')
+    def _compute_nombre_completo(self):
+        """Genera el nombre completo formateado"""
+        for record in self:
+            if record.numero_cedula and record.nombres and record.apellidos:
+                record.nombre_completo = f"{record.nombres} {record.apellidos}"
+            else:
+                record.nombre_completo = False
+
+    @api.depends('lugar_nacimiento_original', 'lugar_expedicion_original')
+    def _compute_separar_lugares(self):
+        """Separa municipio y departamento"""
+        for record in self:
+            # Para lugar de nacimiento
+            if record.lugar_nacimiento_original:
+                municipio, departamento = self._separar_municipio_departamento(
+                    record.lugar_nacimiento_original
+                )
+                record.municipio_nacimiento = municipio
+                record.departamento_nacimiento = departamento
+            else:
+                record.municipio_nacimiento = False
+                record.departamento_nacimiento = False
+
+            # Para lugar de expedición
+            if record.lugar_expedicion_original:
+                municipio, departamento = self._separar_municipio_departamento(
+                    record.lugar_expedicion_original
+                )
+                record.municipio_expedicion = municipio
+                record.departamento_expedicion = departamento
+            else:
+                record.municipio_expedicion = False
+                record.departamento_expedicion = False
+
+    # ==============================================
+    # MÉTODOS DE FORMATEO
+    # ==============================================
+
+    def _formatear_cedula(self, cedula):
+        """Formatea cédula como XX.XXX.XXX"""
+        if not cedula:
+            return ""
+
+        # Limpiar caracteres no numéricos
+        numeros = ''.join(filter(str.isdigit, str(cedula)))
+
+        if len(numeros) >= 8:
+            return f"{numeros[:2]}.{numeros[2:5]}.{numeros[5:]}"
+        return cedula
+
+    def _formatear_mayuscula_inicial(self, texto):
+        """Convierte 'JUAN PABLO' a 'Juan Pablo'"""
+        if not texto:
+            return ""
+
+        # Si ya está en formato correcto, mantenerlo
+        if any(c.islower() for c in texto):
+            return texto
+
+        # Convertir a mayúscula inicial
+        palabras = texto.split()
+        palabras_formateadas = []
+
+        for palabra in palabras:
+            if len(palabra) > 1:
+                palabras_formateadas.append(palabra[0] + palabra[1:].lower())
+            else:
+                palabras_formateadas.append(palabra)
+
+        return " ".join(palabras_formateadas)
+
+    def _separar_municipio_departamento(self, lugar_completo):
+        """Separa municipio y departamento"""
+        if not lugar_completo:
+            return "", ""
+
+        lugar = lugar_completo.strip().upper()
+
+        # Caso 1: Con paréntesis "BOGOTA D.C. (CUNDINAMARCA)"
+        if '(' in lugar and ')' in lugar:
+            partes = lugar.split('(')
+            municipio = partes[0].strip()
+            departamento = partes[1].replace(')', '').strip()
+            return municipio, departamento
+
+        # Caso 2: Solo municipio
+        elif 'D.C.' in lugar:
+            return lugar, "CUNDINAMARCA"
+
+        # Caso 3: Lista de municipios comunes
+        municipios_dc = ['BOGOTA', 'MEDELLIN', 'CALI', 'BARRANQUILLA', 'CARTAGENA']
+        for municipio in municipios_dc:
+            if municipio in lugar:
+                # Asignar departamento según municipio
+                deptos = {
+                    'BOGOTA': 'CUNDINAMARCA',
+                    'MEDELLIN': 'ANTIOQUIA',
+                    'CALI': 'VALLE DEL CAUCA',
+                    'BARRANQUILLA': 'ATLÁNTICO',
+                    'CARTAGENA': 'BOLÍVAR'
+                }
+                return lugar, deptos.get(municipio, "")
+
+        return lugar, ""
+
+    # ==============================================
+    # MÉTODOS DE CONEXIÓN GEMINI
+    # ==============================================
+
+    def _obtener_api_key(self):
+        """Obtiene la API Key de Gemini desde parámetros del sistema"""
+        api_key = self.env['ir.config_parameter'].sudo().get_param('gemini.api_key')
+        if not api_key:
+            raise UserError(_('No se ha configurado la API Key de Gemini. '
+                              'Por favor, configúrala en Configuración > Técnico > Parámetros.'))
+        return api_key
+
+    def _obtener_modelo_gemini(self):
+        """Obtiene el modelo Gemini desde parámetros del sistema"""
+        return self.env['ir.config_parameter'].sudo().get_param(
+            'gemini.model',
+            'gemini-2.5-flash'
+        )
+
+    def _convertir_pdf_a_imagen(self, pdf_data):
+        """Convierte la primera página de un PDF a imagen"""
+        try:
+            with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp_pdf:
+                tmp_pdf.write(pdf_data)
+                tmp_pdf_path = tmp_pdf.name
+
+            pdf_document = fitz.open(tmp_pdf_path)
+
+            if pdf_document.page_count > 0:
+                page = pdf_document.load_page(0)
+                pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+                img_bytes = pix.tobytes("jpeg")
+
+                with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp_img:
+                    tmp_img.write(img_bytes)
+                    tmp_img_path = tmp_img.name
+
+                with open(tmp_img_path, 'rb') as f:
+                    img_data = f.read()
+
+                os.unlink(tmp_pdf_path)
+                os.unlink(tmp_img_path)
+                pdf_document.close()
+
+                return img_data, 'image/jpeg'
+            else:
+                raise ValidationError(_('El PDF no contiene páginas.'))
+
+        except Exception as e:
+            _logger.error(f"Error convirtiendo PDF a imagen: {e}")
+            raise ValidationError(_('Error al convertir PDF a imagen: %s') % str(e))
+
+    def _procesar_imagen(self, image_data):
+        """Procesa la imagen y la prepara para Gemini"""
+        try:
+            if image_data.startswith(b'\xff\xd8'):
+                mime_type = "image/jpeg"
+            elif image_data.startswith(b'\x89PNG'):
+                mime_type = "image/png"
+            elif image_data.startswith(b'BM'):
+                mime_type = "image/bmp"
+            elif image_data[:4] == b'RIFF' and image_data[8:12] == b'WEBP':
+                mime_type = "image/webp"
+            else:
+                mime_type = "image/jpeg"
+
+            imagen_base64 = base64.b64encode(image_data).decode('utf-8')
+            return imagen_base64, mime_type
+
+        except Exception as e:
+            _logger.error(f"Error procesando imagen: {e}")
+            raise ValidationError(_('Error al procesar la imagen: %s') % str(e))
+
+    def _crear_prompt_cedula(self):
+        """Crea el prompt para Gemini específico para cédulas colombianas"""
+        return """Eres un especialista en documentos de identidad colombianos.
+    Analiza METICULOSAMENTE la imagen de la cédula de ciudadanía y extrae ÚNICAMENTE los datos solicitados.
+
+    INSTRUCCIONES CRÍTICAS:
+    1. Devuelve EXCLUSIVAMENTE un objeto JSON válido.
+    2. No incluyas ningún texto explicativo, ni markdown, ni comentarios fuera del JSON.
+    3. Si un campo no es claramente visible o no existe en el documento, asigna una cadena VACÍA "".
+    4. Sigue el formato y las claves del JSON de ejemplo AL PIE DE LA LETRA.
+
+    FORMATO DE SALIDA EXACTO (JSON):
+    {
+      "numero_cedula": "",
+      "apellidos": "",
+      "nombres": "",
+      "fecha_nacimiento": "",
+      "lugar_nacimiento": "",
+      "estatura": "",
+      "grupo_sanguineo": "",
+      "sexo": "",
+      "fecha_expedicion": "",
+      "lugar_expedicion": ""
+    }
+
+    GUÍA PARA EXTRAER CADA CAMPO:
+    - **numero_cedula**: Busca el número principal del documento. Suele estar en formato "XX.XXX.XXX". EJEMPLO: "79.692.873".
+    - **apellidos**: Extrae TODOS los apellidos del titular, en MAYÚSCULAS. EJEMPLO: "CIFUENTES ALVIRA".
+    - **nombres**: Extrae TODOS los nombres del titular, en MAYÚSCULAS. EJEMPLO: "JUAN PABLO".
+    - **fecha_nacimiento**: Busca la fecha de nacimiento en formato "DD-MMM-AAAA" (mes en español en 3 letras mayúsculas). EJEMPLO: "18-MAY-1975".
+    - **lugar_nacimiento**: Extrae la ciudad y/o departamento COMPLETO. EJEMPLO: "BOGOTA D.C. (CUNDINAMARCA)".
+    - **estatura**: Encuentra la estatura en metros. Incluye la unidad " m". EJEMPLO: "1.77 m".
+    - **grupo_sanguineo**: Busca el grupo sanguíneo y factor Rh. EJEMPLO: "AB+".
+    - **sexo**: Solo "M" para masculino o "F" para femenino.
+    - **fecha_expedicion** y **lugar_expedicion**: Busca estos datos si están presentes en la sección de expedición.
+
+    Tu respuesta debe comenzar con { y terminar con }.
+    """
+
+    def _enviar_a_gemini(self, imagen_base64, mime_type):
+        """Envía la imagen a Gemini API"""
+        api_key = self._obtener_api_key()
+        modelo = self._obtener_modelo_gemini()
+
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+        headers = {"Content-Type": "application/json"}
+
+        contenido = {
+            "contents": [{
+                "parts": [
+                    {"text": self._crear_prompt_cedula()},
+                    {"inline_data": {"mime_type": mime_type, "data": imagen_base64}}
+                ]
+            }],
+            "generationConfig": {
+                "temperature": 0.1,
+                "maxOutputTokens": 2048,
+            }
+        }
+
+        try:
+            response = requests.post(
+                url,
+                headers=headers,
+                params={"key": api_key},
+                json=contenido,
+                timeout=60
+            )
+
+            if response.status_code == 200:
+                datos = response.json()
+
+                if "candidates" in datos and datos["candidates"]:
+                    if "content" in datos["candidates"][0]:
+                        texto = datos["candidates"][0]["content"]["parts"][0]["text"]
+                        return texto, datos
+
+                raise ValidationError(_('Formato de respuesta inesperado de Gemini.'))
+
+            elif response.status_code == 404:
+                raise ValidationError(_('Modelo Gemini no encontrado. Verifica la configuración del modelo.'))
+
+            else:
+                error_msg = f"Error {response.status_code}: {response.text[:200]}"
+                raise ValidationError(_('Error de API Gemini: %s') % error_msg)
+
+        except requests.exceptions.Timeout:
+            raise ValidationError(_('Timeout: Gemini tardó demasiado en responder.'))
+        except Exception as e:
+            raise ValidationError(_('Error enviando a Gemini: %s') % str(e))
+
+    def _limpiar_respuesta_gemini(self, texto_respuesta):
+        """Limpia la respuesta de Gemini y extrae el JSON"""
+        if not texto_respuesta:
+            return None
+
+        texto = texto_respuesta.strip()
+        json_text = None
+
+        # Buscar JSON en diferentes formatos
+        if texto.startswith('{') and texto.endswith('}'):
+            json_text = texto
+        elif '```json' in texto.lower():
+            inicio = texto.lower().find('```json') + 7
+            fin = texto.find('```', inicio)
+            if fin > inicio:
+                json_text = texto[inicio:fin].strip()
+        elif '```' in texto:
+            partes = texto.split('```')
+            for parte in partes:
+                parte_strip = parte.strip()
+                if parte_strip.startswith('{') and parte_strip.endswith('}'):
+                    json_text = parte_strip
+                    break
+        else:
+            inicio = texto.find('{')
+            fin = texto.rfind('}')
+            if inicio != -1 and fin != -1 and fin > inicio:
+                json_text = texto[inicio:fin + 1]
+
+        if json_text:
+            try:
+                datos = json.loads(json_text)
+                if isinstance(datos, dict):
+                    return datos
+            except json.JSONDecodeError:
+                try:
+                    json_limpio = json_text.replace("'", '"')
+                    json_limpio = json_limpio.replace('True', 'true').replace('False', 'false').replace('None', 'null')
+                    datos = json.loads(json_limpio)
+                    if isinstance(datos, dict):
+                        return datos
+                except:
+                    return None
+
+        return None
+
+    # ==============================================
+    # MÉTODOS PRINCIPALES
+    # ==============================================
+
+    def procesar_cedula(self):
+        """Procesa la cédula usando Gemini AI"""
+        self.ensure_one()
+
+        try:
+            self.estado = 'procesando'
+            self.env.cr.commit()
+
+            archivo_data = base64.b64decode(self.archivo_original)
+
+            if self.tipo_archivo == 'pdf':
+                archivo_data, mime_type = self._convertir_pdf_a_imagen(archivo_data)
+                self.imagen_procesada = base64.b64encode(archivo_data)
+            else:
+                mime_type = None
+
+            imagen_base64, mime_type_final = self._procesar_imagen(archivo_data)
+            respuesta_texto, respuesta_completa = self._enviar_a_gemini(imagen_base64, mime_type_final)
+
+            self.respuesta_gemini = json.dumps(respuesta_completa, indent=2)
+            datos = self._limpiar_respuesta_gemini(respuesta_texto)
+
+            if datos:
+                # Mapear datos de Gemini a nuestros campos
+                cedula_formateada = self._formatear_cedula(datos.get('numero_cedula', ''))
+
+                update_data = {
+                    'numero_cedula': cedula_formateada,
+                    'nombres_crudo': datos.get('nombres', ''),
+                    'apellidos_crudo': datos.get('apellidos', ''),
+                    'fecha_nacimiento': datos.get('fecha_nacimiento', ''),
+                    'lugar_nacimiento_original': datos.get('lugar_nacimiento', ''),
+                    'estatura': datos.get('estatura', ''),
+                    'grupo_sanguineo': datos.get('grupo_sanguineo', ''),
+                    'sexo': datos.get('sexo', ''),
+                    'fecha_expedicion': datos.get('fecha_expedicion', ''),
+                    'lugar_expedicion_original': datos.get('lugar_expedicion', ''),
+                    'estado': 'completado',
+                    'error_mensaje': '',
+                }
+
+                self.write(update_data)
+
+                # Generar name final
+                if self.numero_cedula and self.nombre_completo:
+                    self.name = f"{self.numero_cedula} - {self.nombre_completo}"
+
+                _logger.info(f"Cédula procesada: {self.numero_cedula}")
+
+                return {
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+                    'params': {
+                        'title': 'Éxito',
+                        'message': 'Cédula procesada correctamente.',
+                        'type': 'success',
+                        'sticky': False,
+                    }
+                }
+            else:
+                raise ValidationError(_('No se pudieron extraer datos de la respuesta de Gemini.'))
+
+        except Exception as e:
+            _logger.error(f"Error procesando cédula: {e}")
+            self.write({
+                'estado': 'error',
+                'error_mensaje': str(e),
+            })
+
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'display_notification',
+                'params': {
+                    'title': 'Error',
+                    'message': f'Error al procesar la cédula: {str(e)}',
+                    'type': 'danger',
+                    'sticky': True,
+                }
+            }
+
+    def reiniciar_proceso(self):
+        """Reinicia el proceso para volver a procesar"""
+        self.ensure_one()
+
+        self.write({
+            'estado': 'borrador',
+            'numero_cedula': '',
+            'nombres_crudo': '',
+            'apellidos_crudo': '',
+            'nombres': '',
+            'apellidos': '',
+            'nombre_completo': '',
+            'fecha_nacimiento': '',
+            'lugar_nacimiento_original': '',
+            'municipio_nacimiento': '',
+            'departamento_nacimiento': '',
+            'estatura': '',
+            'grupo_sanguineo': '',
+            'sexo': '',
+            'fecha_expedicion': '',
+            'lugar_expedicion_original': '',
+            'municipio_expedicion': '',
+            'departamento_expedicion': '',
+            'respuesta_gemini': '',
+            'error_mensaje': '',
+            'imagen_procesada': '',
+            'name': self._default_name(),
+        })
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Reiniciado',
+                'message': 'Proceso reiniciado. Puedes subir una nueva imagen.',
+                'type': 'info',
+                'sticky': False,
+            }
+        }

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_certificado_seguridad_tree" model="ir.ui.view">
+        <field name="name">certificado.seguridad.tree</field>
+        <field name="model">certificado.seguridad</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'procesando'" decoration-success="state == 'completado'" decoration-danger="state == 'error'">
+                <field name="name"/>
+                <field name="numero_cedula"/>
+                <field name="nombre_completo"/>
+                <field name="nombre_curso"/>
+                <field name="fecha_vencimiento"/>
+                <field name="state" widget="badge" decoration-info="state == 'procesando'" decoration-success="state == 'completado'" decoration-danger="state == 'error'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_certificado_seguridad_form" model="ir.ui.view">
+        <field name="name">certificado.seguridad.form</field>
+        <field name="model">certificado.seguridad</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="procesar_certificado" string="📷 Procesar con IA" type="object" class="oe_highlight" attrs="{'invisible': [('attachment_id', '=', False)]}"/>
+                    <button name="reiniciar_proceso" string="🔄 Reiniciar" type="object" attrs="{'invisible': [('state', '=', 'borrador')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="borrador,procesando,completado"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+
+                    <group>
+                        <field name="archivo_subida" filename="nombre_archivo" widget="binary" string="Subir Certificado (PDF/Imagen)"/>
+                        <field name="nombre_archivo" invisible="1"/><field name="attachment_id" invisible="1"/>
+                    </group>
+
+                    <notebook>
+
+                        <page string="👤 Información del Alumno" name="student_info">
+                            <group>
+                                <group string="Datos Personales">
+                                    <field name="nombre_completo"/>
+                                    <field name="numero_cedula"/>
+                                    <field name="nci"/>
+                                    <field name="nro_registro"/>
+                                </group>
+                                <group string="Vigencia y Estado">
+                                    <field name="vigencia_state" decoration-success="vigencia_state == 'vigente'" decoration-warning="vigencia_state == 'por_vencer'" decoration-danger="vigencia_state == 'vencido'"/>
+                                    <field name="fecha_vencimiento"/>
+                                    <field name="dias_para_vencer"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Registros Libro/Acta">
+                                    <field name="libro"/>
+                                    <field name="folio"/>
+                                    <field name="acta"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="🎓 Detalles del Curso" name="course_details">
+                            <group>
+                                <group string="Información Académica">
+                                    <field name="nombre_curso"/>
+                                    <field name="intensidad_horaria"/>
+                                    <field name="ciudad_curso"/>
+                                    <field name="tipo_arma"/>
+                                </group>
+                                <group string="Cronología">
+                                    <field name="fecha_inicio"/>
+                                    <field name="fecha_fin"/>
+                                    <field name="fecha_practica"/>
+                                    <field name="fecha_expedicion"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="🏛️ Institución y Legal" name="legal_info">
+                            <group>
+                                <group string="Academia">
+                                    <field name="academia"/>
+                                    <field name="nit"/>
+                                    <field name="pagina_web"/>
+                                    <field name="lugar_expedicion"/>
+                                    <field name="direccion_expedicion"/>
+                                </group>
+                                <group string="Legalización">
+                                    <field name="licencia"/>
+                                    <field name="resolucion_licencia"/>
+                                    <field name="fecha_resolucion"/>
+                                    <field name="representante_legal"/>
+                                    <field name="nombre_directora"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="⚙️ Logs Técnicos" name="technical_logs">
+                            <group>
+                                <field name="error_mensaje" attrs="{'invisible': [('error_mensaje', '=', False)]}"/>
+                                <field name="texto_extraido"/>
+                            </group>
+                        </page>
+
+                        <page string="📄 Visor del Documento" name="viewer">
+                            <div style="width: 100%; min-width: 100%; clear: both;">
+                                <field name="visualizacion_html" widget="html" nolabel="1"/>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_certificado_seguridad" model="ir.actions.act_window">
+        <field name="name">Certificados de Seguridad</field>
+        <field name="res_model">certificado.seguridad</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_certificado_seguridad_list"
+          name="Certificados Seguridad"
+          parent="transcriptores_gemini.menu_modulos_hijos"
+          action="action_certificado_seguridad"
+          sequence="20"/>
+</odoo>

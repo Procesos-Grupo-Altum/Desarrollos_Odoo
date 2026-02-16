@@ -5,8 +5,10 @@ access_gd_subserie_analista,access.gd.subserie.analista,model_gestion_subserie,g
 access_gd_iss_analista,access.gd.iss.analista,model_gestion_iss,gestion_documentos.group_gd_juridico_analista,1,1,1,0
 access_gd_disposicion_analista,access.gd.disposicion.analista,model_gestion_disposicion_final,gestion_documentos.group_gd_juridico_analista,1,1,1,0
 access_gd_soportes_analista,access.gd.soportes.analista,model_gestion_soporte,gestion_documentos.group_gd_juridico_analista,1,1,1,0
-access_gd_trd_analista,access.gd.trd.analista,model_gestion_trd,gestion_documentos.group_gd_juridico_analista,1,1,1,0
+access_gd_trd_analista,access.gd.trd.analista,model_gestion_trd,gestion_documentos.group_gd_juridico_analista,1,0,0,0
 access_gd_file_extension_analista,access.gd.file.extension.analista,model_file_extension,gestion_documentos.group_gd_juridico_analista,1,1,1,0
+access_gd_trd_analista,access.gd.trd.analista,model_gestion_trd,gestion_documentos.group_trd_analista,1,1,1,0
+access_relacion_trd,access_relacion_trd,model_relacion_trd,gestion_documentos.group_trd_analista,1,1,1,0
 
 access_gd_dependencia_user,access.gd.dependencia.user,model_gestion_dependencia,gestion_documentos.group_gd_juridico_usuario,1,0,0,0
 access_gd_serie_user,access.gd.serie.user,model_gestion_serie,gestion_documentos.group_gd_juridico_usuario,1,0,0,0
@@ -16,6 +18,8 @@ access_gd_disposicion_user,access.gd.disposicion.user,model_gestion_disposicion_
 access_gd_soportes_user,access.gd.soportes.user,model_gestion_soporte,gestion_documentos.group_gd_juridico_usuario,1,0,0,0
 access_gd_trd_user,access.gd.trd.user,model_gestion_trd,gestion_documentos.group_gd_juridico_usuario,1,0,0,0
 access_gd_file_extension,access.gd.file.extension,model_file_extension,gestion_documentos.group_gd_juridico_usuario,1,0,0,0
+access_gd_trd_user,access.gd.trd.user,model_gestion_trd,gestion_documentos.group_trd_usuario,1,0,0,0
+access_relacion_trd,access_relacion_trd,model_relacion_trd,gestion_documentos.group_trd_usuario,1,0,0,0
 
 access_gd_dependencia_manager,access.gd.dependencia.manager,model_gestion_dependencia,gestion_documentos.group_gd_juridico_administrador,1,1,1,0
 access_gd_serie_manager,access.gd.serie.manager,model_gestion_serie,gestion_documentos.group_gd_juridico_administrador,1,1,1,0
@@ -23,6 +27,7 @@ access_gd_subserie_manager,access.gd.subserie.manager,model_gestion_subserie,ges
 access_gd_iss_manager,access.gd.iss.manager,model_gestion_iss,gestion_documentos.group_gd_juridico_administrador,1,1,1,0
 access_gd_disposicion_manager,access.gd.disposicion.manager,model_gestion_disposicion_final,gestion_documentos.group_gd_juridico_administrador,1,1,1,0
 access_gd_soportes_manager,access.gd.soportes.manager,model_gestion_soporte,gestion_documentos.group_gd_juridico_administrador,1,1,1,0
-access_gd_trd_manager,access.gd.trd.manager,model_gestion_trd,gestion_documentos.group_gd_juridico_administrador,1,1,1,0
+access_gd_trd_manager,access.gd.trd.manager,model_gestion_trd,gestion_documentos.group_gd_juridico_administrador,1,1,1,1
 access_gd_file_extension,access.gd.file.extension,model_file_extension,gestion_documentos.group_gd_juridico_administrador,1,1,1,0
-
+access_relacion_trd,access_relacion_trd,model_relacion_trd,gestion_documentos.group_trd_administrador,1,1,1,1
+access_gd_trd_manager,access.gd.trd.user,model_gestion_trd,gestion_documentos.group_trd_administrador,1,1,1,1

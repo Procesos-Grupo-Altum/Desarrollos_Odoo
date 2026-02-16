@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Permisos de acceso para el modelo cedula.extractor -->
+        <record id="access_cedula_extractor_user" model="ir.model.access">
+            <field name="name">cedula.extractor.user</field>
+            <field name="model_id" search="[('model','=','cedula.extractor')]"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_create">True</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+        <record id="access_cedula_extractor_manager" model="ir.model.access">
+            <field name="name">cedula.extractor.manager</field>
+            <field name="model_id" search="[('model','=','cedula.extractor')]"/>
+            <field name="group_id" ref="base.group_erp_manager"/>
+            <field name="perm_read">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_create">True</field>
+            <field name="perm_unlink">True</field>
+        </record>
+    </data>
+</odoo>

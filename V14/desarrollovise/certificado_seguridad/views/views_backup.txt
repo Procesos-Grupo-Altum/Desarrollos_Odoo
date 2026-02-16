@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Acciones -->
+    <record id="action_cedula_extractor" model="ir.actions.act_window">
+        <field name="name">Extractor de Cédulas</field>
+        <field name="res_model">cedula.extractor</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Sube una imagen o PDF de una cédula colombiana para extraer sus datos automáticamente.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_cedula_extractor_main"
+              name="Cédulas"
+              sequence="10"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_cedula_extractor"
+              name="Extractor de Cédulas"
+              parent="menu_cedula_extractor_main"
+              action="action_cedula_extractor"
+              sequence="10"
+              groups="base.group_user"/>
+
+    <!-- Vista Tree -->
+    <record id="view_cedula_extractor_tree" model="ir.ui.view">
+        <field name="name">cedula.extractor.tree</field>
+        <field name="model">cedula.extractor</field>
+        <field name="arch" type="xml">
+            <tree string="Cédulas Procesadas">
+                <field name="name" string="Referencia"/>
+                <field name="estado" widget="badge"/>
+                <field name="numero_cedula" string="C.C."/>
+                <field name="nombre_completo" string="Nombre Completo"/>
+                <field name="municipio_nacimiento" string="Municipio"/>
+                <field name="departamento_nacimiento" string="Departamento"/>
+                <field name="fecha_nacimiento"/>
+                <field name="grupo_sanguineo"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="view_cedula_extractor_form" model="ir.ui.view">
+        <field name="name">cedula.extractor.form</field>
+        <field name="model">cedula.extractor</field>
+        <field name="arch" type="xml">
+            <form string="Extractor de Cédulas Colombianas">
+                <header>
+                    <button name="procesar_cedula"
+                            type="object"
+                            string="Procesar Cédula"
+                            class="btn-primary"
+                            attrs="{'invisible': [('estado', 'in', ['procesando', 'completado'])]}"/>
+                    <button name="reiniciar_proceso"
+                            type="object"
+                            string="Reiniciar"
+                            class="btn-secondary"
+                            attrs="{'invisible': [('estado', '=', 'borrador')]}"/>
+                    <field name="estado" widget="statusbar" statusbar_visible="borrador,procesando,completado,error"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"
+                                   placeholder="C.C. - Nombre Completo"
+                                   readonly="1"
+                                   class="oe_inline"
+                                   attrs="{'invisible': [('estado', '=', 'borrador')]}"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Archivo a Procesar">
+                            <field name="archivo_original" filename="nombre_archivo" widget="binary"
+                                   attrs="{'required': [('estado', '=', 'borrador')]}"/>
+                            <field name="nombre_archivo" readonly="1"/>
+                            <field name="tipo_archivo" readonly="1"/>
+                        </group>
+
+                        <group string="Información de Proceso">
+                            <field name="estado" widget="label_selection"/>
+                            <field name="create_date" readonly="1"/>
+                            <field name="write_date" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Datos Personales" attrs="{'invisible': [('estado', '=', 'borrador')]}">
+                            <group>
+                                <group string="Identificación">
+                                    <field name="numero_cedula" readonly="1"/>
+                                    <field name="nombre_completo" readonly="1"/>
+                                </group>
+
+                                <group string="Nombres Detallados">
+                                    <field name="nombres" readonly="1"/>
+                                    <field name="apellidos" readonly="1"/>
+                                </group>
+                            </group>
+
+                            <group>
+                                <group string="Nacimiento">
+                                    <field name="fecha_nacimiento" readonly="1"/>
+                                    <field name="municipio_nacimiento" readonly="1"/>
+                                    <field name="departamento_nacimiento" readonly="1"/>
+                                    <field name="lugar_nacimiento_original" readonly="1" widget="text"
+                                           attrs="{'invisible': [('lugar_nacimiento_original', '=', False)]}"/>
+                                </group>
+
+                                <group string="Características Físicas">
+                                    <field name="estatura" readonly="1"/>
+                                    <field name="grupo_sanguineo" readonly="1"/>
+                                    <field name="sexo" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Expedición" attrs="{'invisible': [('fecha_expedicion', '=', False)]}">
+                            <group>
+                                <group string="Datos de Expedición">
+                                    <field name="fecha_expedicion" readonly="1"/>
+                                    <field name="municipio_expedicion" readonly="1"/>
+                                    <field name="departamento_expedicion" readonly="1"/>
+                                    <field name="lugar_expedicion_original" readonly="1" widget="text"
+                                           attrs="{'invisible': [('lugar_expedicion_original', '=', False)]}"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Información Técnica" attrs="{'invisible': [('estado', 'not in', ['completado', 'error'])]}">
+                            <group>
+                                <field name="error_mensaje" readonly="1" widget="text" nolabel="1"
+                                       attrs="{'invisible': [('estado', '!=', 'error')]}"/>
+                                <field name="respuesta_gemini" readonly="1" widget="textarea" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

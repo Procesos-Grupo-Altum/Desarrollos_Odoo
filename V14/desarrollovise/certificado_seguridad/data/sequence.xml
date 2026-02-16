@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_certificado_seguridad" model="ir.sequence">
+        <field name="name">Certificado Seguridad</field>
+        <field name="code">certificado.seguridad</field>
+        <field name="prefix">CERT-</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

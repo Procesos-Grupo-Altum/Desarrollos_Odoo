@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_transcriptores_root"
+              name="Transcriptores Gemini"
+              web_icon="transcriptor_gemini,static/description/icon.png"
+              sequence="10"/>
+
+    <menuitem id="menu_modulos_hijos"
+              name="Módulos"
+              parent="menu_transcriptores_root"
+              sequence="10"/>
+</odoo>

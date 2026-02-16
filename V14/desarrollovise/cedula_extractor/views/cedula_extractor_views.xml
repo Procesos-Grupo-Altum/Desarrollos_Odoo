@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_cedula_extractor" model="ir.actions.act_window">
+        <field name="name">Extractor de Cédulas</field>
+        <field name="res_model">cedula.extractor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_cedula_extractor" name="Cédulas" parent="transcriptores_gemini.menu_modulos_hijos" action="action_cedula_extractor" sequence="10"/>
+
+    <record id="view_cedula_extractor_form" model="ir.ui.view">
+        <field name="name">cedula.extractor.form</field>
+        <field name="model">cedula.extractor</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="procesar_cedula" string="📷 Procesar con IA" type="object" class="oe_highlight" attrs="{'invisible': [('attachment_id', '=', False)]}"/>
+                    <button name="reiniciar_proceso" string="🔄 Reiniciar" type="object" attrs="{'invisible': [('estado', '=', 'borrador')]}"/>
+                    <field name="estado" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <field name="archivo_subida" filename="nombre_archivo" widget="binary" string="Subir Documento (PDF/Imagen)"/>
+                        <field name="nombre_archivo" invisible="1"/><field name="attachment_id" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="👤 Datos Extraídos" name="datos" attrs="{'invisible': [('estado', '=', 'borrador')]}">
+                            <group>
+                                <group string="🆔 Identificación">
+                                    <field name="numero_cedula"/>
+                                    <field name="nombre_completo"/>
+                                    <field name="sexo"/>
+                                </group>
+                                <group string="📝 Detalle Nombres">
+                                    <field name="first_name"/><field name="second_name"/>
+                                    <field name="first_surname"/><field name="second_surname"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="🎂 Nacimiento">
+                                    <field name="fecha_nacimiento"/>
+                                    <field name="municipio_nacimiento"/>
+                                    <field name="departamento_nacimiento"/>
+                                    <field name="lugar_nacimiento_original"/>
+                                </group>
+                                <group string="📏 Características">
+                                    <field name="estatura"/><field name="grupo_sanguineo"/>
+                                </group>
+                            </group>
+                            <group string="🏢 Expedición">
+                                <field name="fecha_expedicion"/>
+                                <field name="municipio_expedicion"/>
+                                <field name="departamento_expedicion"/>
+                                <field name="lugar_expedicion_original"/>
+                            </group>
+                        </page>
+                        <page string="⚙️ Datos Técnicos">
+                            <group>
+                                <field name="tokens_totales"/>
+                                <field name="costo_estimado"/>
+                                <field name="respuesta_gemini"/>
+                                <field name="error_mensaje" attrs="{'invisible': [('error_mensaje', '=', False)]}"/>
+                            </group>
+                        </page>
+                        <page string="📄 Visor del Documento" name="viewer">
+                            <div style="width: 100%; min-width: 100%; clear: both;">
+                                <field name="visualizacion_html" widget="html" nolabel="1"/>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cedula_extractor_tree" model="ir.ui.view">
+        <field name="name">cedula.extractor.tree</field>
+        <field name="model">cedula.extractor</field>
+        <field name="arch" type="xml">
+            <tree string="Cédulas">
+                <field name="name"/><field name="numero_cedula"/><field name="nombre_completo"/><field name="estado" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

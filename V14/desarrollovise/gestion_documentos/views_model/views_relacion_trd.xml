@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_relacion_trd_tree" model="ir.ui.view">
+        <field name="name">relacion.trd.tree</field>
+        <field name="model">relacion.trd</field>
+        <field name="arch" type="xml">
+            <tree string="Relación TRD-ISS">
+                <field name="trd_id"/>
+                  <field name="model_id"/>
+<!--                  <field name="attachment_id"/>-->
+                  <field name="fecha_referencia"/>
+                  <field name="document_url" widget="url"/>
+                  <field name="id"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

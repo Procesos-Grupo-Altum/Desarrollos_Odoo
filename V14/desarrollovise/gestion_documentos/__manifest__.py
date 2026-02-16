@@ -8,8 +8,8 @@
         Módulo para la gestión de documentos en Odoo.
     """,
     'author': 'Freddy Alexander Urrego Beltran',
-    'website': '',
-    'depends': ['base', 'mail'],
+    'website': 'https://vise.avancyserp.com/web?db=dev-vise#id=1088&action=35&model=ir.module.module&view_type=form&cids=1&menu_id=5',
+    'depends': ['base', 'mail', 'avancys'],
     'license': 'AGPL-3',
     'data': [
         'security/security_groups.xml',
@@ -20,6 +20,7 @@
         'views_model/views_gestion_iss.xml',
         'views_model/views_gestion_ccd.xml',
         'views_model/view_gestion_trd.xml',
+        'views_model/views_relacion_trd.xml',
 
         'views_model/menu_gestion.xml',
         'views_model/templates.xml',

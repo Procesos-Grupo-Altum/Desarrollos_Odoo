@@ -2,7 +2,7 @@
 from datetime import date
 
 from odoo import fields, models, api
-#from odoo.exceptions import UserError, ValidationError
+from odoo.odoo.exceptions import UserError, ValidationError
 
 
 class QuoterFivep(models.Model):
