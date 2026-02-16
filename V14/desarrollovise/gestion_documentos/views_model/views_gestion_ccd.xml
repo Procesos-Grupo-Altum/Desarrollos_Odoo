@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_gestion_ccd_tree" model="ir.ui.view">
+        <field name="name">gestion.ccd.tree</field>
+        <field name="model">gestion.iss</field>
+        <field name="arch" type="xml">
+            <tree string="Cuadro de Clasificación Documental (CCD)"
+                create="false" edit="false" delete="false" duplicate="false">
+                <field name="codigo_depen" string="Código Dependencia" class="text-center"/>
+                <field name="nombre_depen" string="Nombre de la Dependencia" />
+                <field name="codigo_serie" string="Código Serie" class="text-center"/>
+                <field name="nombre_serie" string="Serie"/>
+                <field name="codigo_subserie" string="Código Subserie" class="text-center"/>
+                <field name="nombre_subserie" string="Subserie"/>
+                <field name="codigo_secundario" string="Codigo General" class="text-center"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_gestion_ccd_form" model="ir.ui.view">
+        <field name="name">gestion.ccd.form</field>
+        <field name="model">gestion.iss</field>
+        <field name="arch" type="xml">
+            <form string="Índice de Series y Subseries Documentales (ISS)"
+                create="false" edit="false" delete="false" duplicate="false">
+                <sheet>
+                    <table style="width:100%; border-collapse:collapse;">
+                        <tr style="border-bottom:2px solid #000;">
+                            <td style="width:80px; padding:10px; vertical-align:middle;">
+                                <img alt="Logo Vise" src="https://www.vise.com.co/images/logos/logo.png" style="max-height:50px; display:block;"/>
+                            </td>
+                            <td style="padding:10px; vertical-align:middle; text-align:center;">
+                                <strong>VISE LTDA</strong><br/>
+                                <span style="font-size:14px;">Cuadro de Clasificación Documental</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <group>
+                        <group>
+                            <field name="codigo_secundario" string="Codigo General" readonly="1"/>
+                            <field name="codigo_depen" string="Código Dependencia" readonly="1"/>
+                            <field name="nombre_depen" string="Nombre de la Dependencia" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}" readonly="1"/>
+                        </group>
+                        <group>
+
+                            <field name="codigo_serie" string="Código Serie" readonly="1"/>
+                            <field name="nombre_serie" string="Serie" readonly="1"/>
+                            <field name="codigo_subserie" string="Código Serie" readonly="1"/>
+                            <field name="nombre_subserie" string="Serie" readonly="1"/>
+
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

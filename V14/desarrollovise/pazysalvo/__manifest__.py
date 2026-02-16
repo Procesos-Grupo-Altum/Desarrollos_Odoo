@@ -1,9 +1,9 @@
-# -*- conding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 {
     'name': 'Modulo de Paz y Salvo',
     'version': '1.0',
-    'depends': [
+    'depends': ['base',
                 'contacts',
                 'hr',
                 'hr_contract',
@@ -49,8 +49,9 @@
                 'payment_payumoney',
                 'payment_stripe',
                 'payment_sips',
-                'web'
-],
+                'web',
+                'l10n_latam_base'
+                ],
     'author': 'Freddy Alexander Urrego Beltran',
     'website': 'https://www.udemy.com/',
     'category': 'Paz y Salvo',
@@ -59,8 +60,14 @@
         Modulo para hacer formularios de Paz y Salvo de los empleados
     """,
     'data': ['views/view_pazysalvo.xml',
+             'views/view_viseareas.xml',
+             'views/view_tiposcontratos.xml',
+             'views/view_contracttype.xml',
+             'views/menu_contratos.xml',
              'views/menu.xml',
              'security/security_groups.xml',
              'security/ir.model.access.csv',
-             'security/pazysalvo_rules.xml'],
+             'security/pazysalvo_rules.xml',
+             'data/vise.areas.csv',
+             ],
 }

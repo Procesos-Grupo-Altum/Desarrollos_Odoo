@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Acción que lista los tipos de contrato -->
+    <record id="action_hr_contract_type_custom" model="ir.actions.act_window">
+        <field name="name">Tipos de Contrato</field>
+        <field name="res_model">hr.contract.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú dentro de Empleados ▸ Configuración -->
+    <menuitem id="menu_hr_contract_type_custom_under_hr"
+              name="Tipos de Contrato"
+              parent="hr.menu_hr_root"
+              action="action_hr_contract_type_custom"
+              sequence="60"/>
+</odoo>

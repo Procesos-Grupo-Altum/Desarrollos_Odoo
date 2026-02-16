@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!-- Este registro se crea automáticamente, pero lo hacemos explícito -->
+        <record id="model_hr_branch" model="ir.model">
+            <field name="model">hr.branch</field>
+            <field name="name">HR Branch</field>
+        </record>
+    </data>
+</odoo>

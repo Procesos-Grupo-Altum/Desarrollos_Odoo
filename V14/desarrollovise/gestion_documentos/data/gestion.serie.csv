@@ -1,0 +1,59 @@
+id,codigo,name,active,sequence
+serie_1,01,"Acreditaciones",1,1
+serie_2,02,"Actas",1,2
+serie_3,03,"Aportes al Sistema de Seguridad Social",1,3
+serie_4,04,"Arquitectura de Red",1,4
+serie_5,05,"Certificados",1,5
+serie_6,06,"Comprobantes Contables",1,6
+serie_7,07,"Comprobantes de Almacén",1,7
+serie_8,08,"Comunicaciones",1,8
+serie_9,09,"Conceptos",1,9
+serie_10,10,"Conciliaciones",1,10
+serie_11,11,"Contratos",1,11
+serie_12,12,"Contratos de Seguros",1,12
+serie_13,13,"Contribuciones Especiales",1,13
+serie_14,14,"Convención Colectiva de Trabajo",1,14
+serie_15,15,"Convenios",1,15
+serie_16,16,"Créditos",1,16
+serie_17,17,"Declaraciones Tributarias",1,17
+serie_18,18,"Derechos de Petición",1,18
+serie_19,19,"Embargos",1,19
+serie_20,20,"Encuestas",1,20
+serie_21,21,"Estados Financieros  ",1,21
+serie_22,22,"Facturas",1,22
+serie_23,23,"Historiales",1,23
+serie_24,24,"Historias Laborales",1,24
+serie_25,25,"Hojas de Seguridad",1,25
+serie_26,26,"Incapacidades",1,26
+serie_27,27,"Indicadores",1,27
+serie_28,28,"Información Exógena",1,28
+serie_29,29,"Informes",1,29
+serie_30,30,"Instrumentos Archivísticos",1,30
+serie_31,31,"Instrumentos de Control",1,31
+serie_32,32,"Inventarios",1,32
+serie_33,33,"Licencias",1,33
+serie_34,34,"Manuales",1,34
+serie_35,35,"Matrices",1,35
+serie_36,36,"Nómina",1,36
+serie_37,37,"Órdenes  ",1,37
+serie_38,38,"Organigramas",1,38
+serie_39,39,"Permisos",1,39
+serie_40,40,"Peticiones, Quejas y Reglamos",1,40
+serie_41,41,"Planes",1,41
+serie_42,42,"Políticas",1,42
+serie_43,43,"Presupuesto",1,43
+serie_44,44,"Procesos Disciplinarios",1,44
+serie_45,45,"Procesos Jurídicos",1,45
+serie_46,46,"Procesos Licitatorios",1,46
+serie_47,47,"Programas",1,47
+serie_48,48,"Propuestas",1,48
+serie_49,49,"Proyectos",1,49
+serie_50,50,"Quejas de Acoso Laboral",1,50
+serie_51,51,"Registros de Capacitaciones",1,51
+serie_52,52,"Registros de Eventos",1,52
+serie_53,53,"Registros de Inspecciones",1,53
+serie_54,54,"Registros de Mantenimiento",1,54
+serie_55,55,"Registros de Operaciones De Caja Menor",1,55
+serie_56,56,"Registros Públicos",1,56
+serie_57,57,"Reportes",1,57
+serie_58,58,"Sistema de Gestión Integral",1,58

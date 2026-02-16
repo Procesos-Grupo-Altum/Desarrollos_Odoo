@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Acción -->
+  <record id="action_purchase_requisition_custom" model="ir.actions.act_window">
+    <field name="name">Requisiciones</field>
+    <field name="res_model">purchase.requisition</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+  </record>
+
+  <!-- Menú: Compras > Órdenes -->
+  <menuitem id="menu_purchase_requisition_custom"
+            name="Requisiciones"
+            parent="purchase.menu_procurement_management"
+            action="action_purchase_requisition_custom"
+            sequence="99"
+            groups="base.group_user"/>
+</odoo>

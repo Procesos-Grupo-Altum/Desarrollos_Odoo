@@ -8,5 +8,4 @@
         <field name="category_id" ref="categoria_pazysalvo_admin"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
-
 </odoo>

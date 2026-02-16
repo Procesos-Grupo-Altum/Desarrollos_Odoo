@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="view_tree_tiposcontratos" model="ir.ui.view">
+        <field name="name">tipos.contratos.areas.vise.tree</field>
+        <field name="model">tipos.contratos.areas.vise</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="contract_type"/>
+                <!--                <field name="sequence"/>-->
+                <field name="aplica_firma" widget="boolean_toggle"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_form_tiposcontratos" model="ir.ui.view">
+        <field name="name">tipos.contratos.areas.vise.form</field>
+        <field name="model">tipos.contratos.areas.vise</field>
+        <field name="arch" type="xml">
+            <form string="Tipos de Contratos Areas Vise">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'readonly':[('name','!=',False)]}"/>
+                            <field name="aplica_firma" widget="boolean_toggle"/>
+
+
+                        </group>
+                        <group>
+                            <field name="contract_type" options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'readonly':[('contract_type','!=',False)]}"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

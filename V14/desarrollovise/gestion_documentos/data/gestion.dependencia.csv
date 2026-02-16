@@ -1,0 +1,10 @@
+id,codigo,name,sequence,active
+depen_1,1010,"Dirección Jurídica / Oficial de Cumplimiento",1,1
+depen_2,1020,"Dirección de Sostenibilidad / Gestión Ambiental",2,1
+depen_3,1100,"Gerencia Comercial y de Servicio",3,1
+depen_4,1200,"Gerencia Financiera y Administrativa",4,1
+depen_5,1220,"Sucursales y Agencias",5,1
+depen_6,1300,"Gerencia de Tecnología",6,1
+depen_7,1400,"Gerencia Nacional de Operaciones",7,1
+depen_8,1500,"Gerencia de Talento Humano",8,1
+depen_9,1510,"Gestión Integral",9,1

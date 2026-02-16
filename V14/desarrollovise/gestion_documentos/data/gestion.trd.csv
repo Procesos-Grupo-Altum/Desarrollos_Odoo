@@ -1,0 +1,555 @@
+id,iss_id/id,name,codigo_formato,soporte_ids/id,file_extension_id/id,sequence
+trd_1,iss_14,"Entrega residuos pos consumo","",spt_2,file_1,1
+trd_2,iss_14,"Inventario de residuos","GGGI01112.06",spt_2,file_1,2
+trd_3,iss_14,"Inspección de Proveedor de Gestión de Residuos Peligrosos","GGGI01112.05",spt_2,file_1,3
+trd_4,iss_14,"Formato control ingreso de residuos peligrosos al centro de acopio","GGGI01112.08",spt_2,file_1,4
+trd_5,iss_15,"Manifiesto de carga","",spt_2,file_2,1
+trd_6,iss_15,"Lista de chequeó","GGGI01112.03",spt_2,file_2,2
+trd_7,iss_15,"Certificado de reaprovechamiento","",spt_2,file_2,3
+trd_8,iss_38,"Convenio","",spt_2,file_2,1
+trd_9,iss_38,"Comunicación","",spt_2,file_2,2
+trd_10,iss_38,"Informe","",spt_2,file_2,3
+trd_11,iss_62,"Hoja de seguridad","",spt_2,file_2,1
+trd_12,iss_74,"Informe de fumigación","",spt_2,file_2,1
+trd_13,iss_76,"Emisiones atmosféricas","GG0219",spt_2,file_1,1
+trd_14,iss_79,"Buzón de sugerencias ambientales","",spt_1,"",1
+trd_15,iss_80,"Simulacros ambientales","GGGI0105.07",spt_2,file_2,1
+trd_16,iss_81,"Informe de sostenibilidad","",spt_2,file_2,1
+trd_17,iss_98,"Control lavado de tanques","",spt_2,file_1,1
+trd_18,iss_112,"Medición de consumo de agua y energía","GG0219",spt_2,file_1,1
+trd_19,iss_114,"Lista chequeo para transporte de residuos peligrosos","GGGI01112.03",spt_2,file_1,1
+trd_20,iss_124,"inventario de productos químicos","",spt_2,file_1,1
+trd_21,iss_134,"Matriz de compatibilidad","",spt_2,file_1,1
+trd_22,iss_137,"Matriz de Identificación de Aspectos Ambientales, Impactos Ambientales y Riesgos Ambientales","GGGI0214.01",spt_2,file_1,1
+trd_23,iss_137,"Matriz de Identificación de Aspectos Ambientales en el puesto de  Trabajo","GGGI0214.02",spt_2,file_1,2
+trd_24,iss_137,"Matriz de identificación de aspectos e impactos ambientales en el puesto de trabajo","GGGI0214.03",spt_2,file_1,3
+trd_25,iss_145,"Plan de acción social","",spt_2,file_1,1
+trd_26,iss_165,"Ficha de proyecto","",spt_2,file_2,1
+trd_27,iss_165,"Cronograma","",spt_2,file_2,2
+trd_28,iss_165,"Informe","",spt_2,file_2,3
+trd_29,iss_166,"Ficha de proyecto","",spt_2,file_2,1
+trd_30,iss_166,"Cronograma","",spt_2,file_2,2
+trd_31,iss_166,"Informe","",spt_2,file_2,3
+trd_32,iss_170,"Lista de asistencia","",spt_1,"",1
+trd_33,iss_177,"Inspección a punto de acopio de residuos puntos ecológicos y depósitos de consumo de agua y energía","",spt_1,"",1
+trd_34,iss_178,"Mantenimientos de aires acondicionados, fumigaciones y lavado de tanques","",spt_2,file_1,1
+trd_35,iss_2,"Acta de comité de convivencia laboral","",spt_1,"",1
+trd_36,iss_2,"Cierre y seguimiento","",spt_1,"",2
+trd_37,iss_2,"Actividades comité de convivencia","",spt_1,"",3
+trd_38,iss_2,"Informe","",spt_1,"",4
+trd_39,iss_8,"Convocatorias","",spt_1,"",1
+trd_40,iss_8,"Actas de la junta de socios","",spt_1,"",2
+trd_41,iss_8,"Libro de actas de junta de socios","",spt_1,"",3
+trd_42,iss_25,"Concepto","",spt_2,file_2,1
+trd_43,iss_36,"Pliego de peticiones","",spt_2,file_2,1
+trd_44,iss_36,"Acta de negociación","",spt_2,file_2,2
+trd_45,iss_36,"Convención colectiva","",spt_2,file_2,3
+trd_46,iss_36,"Deposito convención","",spt_2,file_2,4
+trd_47,iss_36,"Denuncia convención","",spt_2,file_2,5
+trd_48,iss_36,"Solicitud sindicato","",spt_2,file_2,6
+trd_49,iss_45,"Pqrs","",spt_2,file_2,1
+trd_50,iss_45,"Respuesta pqrs","",spt_2,file_2,2
+trd_51,iss_69,"Requerimientos","",spt_2,file_2,1
+trd_52,iss_69,"Respuesta requerimientos","",spt_2,file_2,2
+trd_53,iss_72,"Auditoria","",spt_2,file_2,1
+trd_54,iss_72,"Informe","",spt_2,file_2,2
+trd_55,iss_105,"Base de datos casos","",spt_2,file_1,1
+trd_56,iss_108,"Base de datos pqrs","",spt_2,file_1,1
+trd_57,iss_111,"Base de datos procesos disciplinarios","",spt_2,file_1,1
+trd_58,iss_125,"Tramites autorizaciones licencias","",spt_2,file_2,1
+trd_59,iss_125,"Licencia","",spt_2,file_2,2
+trd_60,iss_127,"Tramites autorizaciones licencias","",spt_2,file_2,1
+trd_61,iss_127,"Licencia","",spt_2,file_2,2
+trd_62,iss_129,"Manual sarlaft 2.0","GGGR.0502",spt_2,file_2,1
+trd_63,iss_138,"Matriz de riesgos laft","",spt_2,file_1,1
+trd_64,iss_153,"Informe disciplinario","",spt_2,file_2,1
+trd_65,iss_153,"Citación descargos","GGGR0202.02",spt_2,file_2,2
+trd_66,iss_153,"Diligencia descargos","GGGR0202.04",spt_2,file_2,3
+trd_67,iss_153,"Decisión disciplinaria","",spt_2,file_2,4
+trd_68,iss_153,"Recordatorio de funciones","GGGR0202.06",spt_2,file_2,5
+trd_69,iss_153,"Llamado de atención correctivo","GGGR0202.07",spt_2,file_2,6
+trd_70,iss_153,"Suspensión","GGGR0202.09",spt_2,file_2,7
+trd_71,iss_153,"Periodo de prueba","",spt_2,file_2,8
+trd_72,iss_154,"Demanda","",spt_2,file_2,1
+trd_73,iss_154,"Contestación de la demanda","",spt_2,file_2,2
+trd_74,iss_154,"Memoriales etapa probatoria","",spt_2,file_2,3
+trd_75,iss_154,"Alegato de conclusión","",spt_2,file_2,4
+trd_76,iss_154,"Auto de resolución de recurso","",spt_2,file_2,5
+trd_77,iss_154,"Recurso de apelación","",spt_2,file_2,6
+trd_78,iss_154,"Recurso de reposición","",spt_2,file_2,7
+trd_79,iss_154,"Alegato segunda instancia","",spt_2,file_2,8
+trd_80,iss_154,"Sustentación del recurso de queja","",spt_2,file_2,9
+trd_81,iss_154,"Sentencia segunda instancia","",spt_2,file_2,10
+trd_82,iss_155,"Demanda","",spt_2,file_2,1
+trd_83,iss_155,"Contestación de la demanda","",spt_2,file_2,2
+trd_84,iss_155,"Memoriales etapa probatoria","",spt_2,file_2,3
+trd_85,iss_155,"Alegato de conclusión","",spt_2,file_2,4
+trd_86,iss_155,"Auto de resolución de recurso","",spt_2,file_2,5
+trd_87,iss_155,"Recurso de apelación","",spt_2,file_2,6
+trd_88,iss_155,"Recurso de reposición","",spt_2,file_2,7
+trd_89,iss_155,"Alegato segunda instancia","",spt_2,file_2,8
+trd_90,iss_155,"Sustentación del recurso de queja","",spt_2,file_2,9
+trd_91,iss_155,"Sentencia segunda instancia","",spt_2,file_2,10
+trd_92,iss_156,"Demanda","",spt_2,file_2,1
+trd_93,iss_156,"Contestación de la demanda","",spt_2,file_2,2
+trd_94,iss_156,"Memoriales etapa probatoria","",spt_2,file_2,3
+trd_95,iss_156,"Alegato de conclusión","",spt_2,file_2,4
+trd_96,iss_156,"Auto de resolución de recurso","",spt_2,file_2,5
+trd_97,iss_156,"Recurso de apelación","",spt_2,file_2,6
+trd_98,iss_156,"Recurso de reposición","",spt_2,file_2,7
+trd_99,iss_156,"Alegato segunda instancia","",spt_2,file_2,8
+trd_100,iss_156,"Sustentación del recurso de queja","",spt_2,file_2,9
+trd_101,iss_156,"Sentencia segunda instancia","",spt_2,file_2,10
+trd_102,iss_157,"Demanda","",spt_2,file_2,1
+trd_103,iss_157,"Contestación de la demanda","",spt_2,file_2,2
+trd_104,iss_157,"Memoriales etapa probatoria","",spt_2,file_2,3
+trd_105,iss_157,"Alegato de conclusión","",spt_2,file_2,4
+trd_106,iss_157,"Auto de resolución de recurso","",spt_2,file_2,5
+trd_107,iss_157,"Recurso de apelación","",spt_2,file_2,6
+trd_108,iss_157,"Recurso de reposición","",spt_2,file_2,7
+trd_109,iss_157,"Alegato segunda instancia","",spt_2,file_2,8
+trd_110,iss_157,"Sustentación del recurso de queja","",spt_2,file_2,9
+trd_111,iss_157,"Sentencia segunda instancia","",spt_2,file_2,10
+trd_112,iss_168,"Constancia atención aclaración y orientación","",spt_2,file_2,1
+trd_113,iss_168,"Queja","",spt_2,file_2,2
+trd_114,iss_168,"Comunicado avoca - ampliación","",spt_2,file_2,3
+trd_115,iss_168,"Ampliación","",spt_2,file_2,4
+trd_116,iss_168,"Entrevista","",spt_2,file_2,5
+trd_117,iss_182,"Reporte ausencia de operaciones sospechosas - AROS","",spt_2,file_2,1
+trd_118,iss_184,"Reporte operaciones sospechosas - ROS","",spt_2,file_2,1
+trd_119,iss_101,"Lista de chequeo procesos comerciales","",spt_2,file_1,1
+trd_120,iss_158,"Formato Registro información de Clientes","GCCJ0201.01",spt_2,file_1,1
+trd_121,iss_158,"Consulta Risk","",spt_2,file_2,2
+trd_122,iss_158,"Términos de referencia","",spt_2,file_2,3
+trd_123,iss_158,"Adenda","",spt_2,file_2,4
+trd_124,iss_158,"Formato de la vista técnica","GC0201.02",spt_2,file_2,5
+trd_125,iss_158,"Oferta Técnica","",spt_2,file_2,6
+trd_126,iss_158,"Cotización","",spt_2,file_2,7
+trd_127,iss_158,"Propuesta comercial","",spt_2,file_2,8
+trd_128,iss_158,"Comunicación de asignación / no asignación","",spt_2,file_2,9
+trd_129,iss_163,"Oferta comercial","",spt_2,file_2,1
+trd_130,iss_11,"Planilla Integrada de liquidación de Aportes (PILA)","",spt_2,file_2,1
+trd_131,iss_13,"Certificación de bomberos","",spt_2,file_2,1
+trd_132,iss_16,"Certificado gmf","",spt_2,file_2,1
+trd_133,iss_17,"Comprobante contable","",spt_1,"",1
+trd_134,iss_17,"Pago a proveedores en general","",spt_1,"",2
+trd_135,iss_17,"Pago nóminas y liquidaciones","",spt_1,"",3
+trd_136,iss_17,"Pagos pse","",spt_1,"",4
+trd_137,iss_18,"Comprobante contable","",spt_1,"",1
+trd_138,iss_18,"Pagos a proveedores","",spt_1,"",2
+trd_139,iss_18,"Liquidación por retiro definitivo","",spt_1,"",3
+trd_140,iss_18,"Pago obligaciones bancarias","",spt_1,"",4
+trd_141,iss_19,"Comprobante de recibo de caja","",spt_1,"",1
+trd_142,iss_19,"Documentos soportes","",spt_1,"",2
+trd_143,iss_20,"Comprobante de ajuste contables","",spt_1,"",1
+trd_144,iss_20,"Documentos soportes","",spt_1,"",2
+trd_145,iss_21,"Entrada de almacén","",spt_2,file_1,1
+trd_146,iss_22,"Salida de almacén","",spt_2,file_1,1
+trd_147,iss_24,"Comunicación","",spt_2,file_3,1
+trd_148,iss_26,"Conciliación bancaria","",spt_1,"",1
+trd_149,iss_26,"Extracto bancario","",spt_1,"",2
+trd_150,iss_26,"Auxiliar de banco","",spt_1,"",3
+trd_151,iss_27,"Conciliación de tarjeta de crédito","",spt_2,file_1,1
+trd_152,iss_27,"Extracto tarjeta de crédito","",spt_2,file_2,2
+trd_153,iss_27,"Movimientos bancarios","",spt_2,file_1,3
+trd_154,iss_29,"Selección de proveedores","GACO0202.07",spt_2,file_2,1
+trd_155,iss_29,"formato identificación de proveedores","GACO0202.03",spt_2,file_2,2
+trd_156,iss_29,"Evaluación de proveedores","GACO0202.08",spt_2,file_2,3
+trd_157,iss_29,"visita de proveedores","GACO0101.01",spt_2,file_2,4
+trd_158,iss_29,"Certificado de existencia y representación legal","",spt_2,file_2,5
+trd_159,iss_29,"Rut","",spt_2,file_2,6
+trd_160,iss_29,"Certificado bancario","",spt_2,file_2,7
+trd_161,iss_29,"Certificado comercial","",spt_2,file_2,8
+trd_162,iss_29,"Copia documento de identidad","",spt_2,file_2,9
+trd_163,iss_29,"Validaciones de seguridad risk","",spt_2,file_2,10
+trd_164,iss_29,"anexo de visita proveedores","GACO0202.10",spt_2,file_2,11
+trd_165,iss_29,"Contrato","",spt_2,file_2,12
+trd_166,iss_29,"Póliza","",spt_2,file_2,13
+trd_167,iss_29,"Comunicación","",spt_2,file_2,14
+trd_168,iss_29,"Otro sí","",spt_2,file_2,15
+trd_169,iss_29,"Informe","",spt_2,file_2,16
+trd_170,iss_35,"Contribución especial","",spt_1,"",1
+trd_171,iss_35,"Copia comprobante de pago","",spt_1,"",2
+trd_172,iss_39,"Solicitud de crédito","",spt_2,file_2,1
+trd_173,iss_39,"Pagare","",spt_2,file_2,2
+trd_174,iss_39,"Oficio de desembolso","",spt_2,file_2,3
+trd_175,iss_39,"Certificado intereses  y paz y salvo de las obligaciones canceladas","",spt_2,file_2,4
+trd_176,iss_39,"Certificado obligaciones bancarias","",spt_2,file_2,5
+trd_177,iss_40,"Declaración activos en ele exterior","",spt_2,file_2,1
+trd_178,iss_40,"Declaración de autorenteciones","",spt_2,file_2,2
+trd_179,iss_41,"Declaración de impuesto de industria y comercio - ICA","",spt_1,"",1
+trd_180,iss_41,"Declaración de autorenteciones","",spt_1,"",2
+trd_181,iss_41,"Auxiliar de cuenta","",spt_1,"",3
+trd_182,iss_41,"Copia comprobante de pago","",spt_1,"",4
+trd_183,iss_42,"Declaración de renta y complementarios","",spt_2,file_2,1
+trd_184,iss_42,"Copia comprobante de pago","",spt_2,file_2,2
+trd_185,iss_42,"Balance fiscal","",spt_2,file_2,3
+trd_186,iss_42,"Certificado","",spt_2,file_2,4
+trd_187,iss_43,"Declaración de  retenciones en la fuente","",spt_2,file_2,1
+trd_188,iss_43,"Copia comprobante de pago","",spt_2,file_2,2
+trd_189,iss_43,"Auxiliar de cuenta","",spt_2,file_2,3
+trd_190,iss_44,"Declaración del impuesto al valor agregado - IVA","",spt_2,file_2,1
+trd_191,iss_44,"Auxiliar de cuenta","",spt_2,file_2,2
+trd_192,iss_44,"Copia comprobante de pago","",spt_2,file_2,3
+trd_193,iss_46,"Embargos","",spt_2,file_2,1
+trd_194,iss_46,"Comunicación","",spt_2,file_2,2
+trd_195,iss_47,"Encuesta mensual de servicio","",spt_2,file_1,1
+trd_196,iss_47,"Encuesta de transacciones en el exterior","",spt_2,file_1,2
+trd_197,iss_48,"Estados financieros","",spt_1,"",1
+trd_198,iss_48,"Estados financieros consolidados","",spt_1,"",2
+trd_199,iss_49,"Factura de venta","",spt_2,file_2,1
+trd_200,iss_49,"Nota crédito","",spt_2,file_2,2
+trd_201,iss_50,"Hoja de vida","",spt_2,file_1,1
+trd_202,iss_52,"Hoja de vida","",spt_2,file_1,1
+trd_203,iss_56,"Hoja de vida","",spt_1,"",1
+trd_204,iss_56,"Plano civil","",spt_1,"",2
+trd_205,iss_56,"Plano eléctrico","",spt_1,"",3
+trd_206,iss_56,"Plano hidráulico","",spt_1,"",4
+trd_207,iss_56,"Escritura","",spt_1,"",5
+trd_208,iss_56,"Impuesto predial","",spt_1,"",6
+trd_209,iss_57,"Hoja de vida","",spt_2,file_1,1
+trd_210,iss_59,"Selección de proveedores","GACO0202.07",spt_2,file_2,1
+trd_211,iss_59,"formato identificación de proveedores","GACO0202.03",spt_2,file_2,2
+trd_212,iss_59,"Evaluación de proveedores","GACO0202.08",spt_2,file_2,3
+trd_213,iss_59,"visita de proveedores","GACO0101.01",spt_2,file_2,4
+trd_214,iss_59,"Certificado de existencia y representación legal","",spt_2,file_2,5
+trd_215,iss_59,"Rut","",spt_2,file_2,6
+trd_216,iss_59,"Certificado bancario","",spt_2,file_2,7
+trd_217,iss_59,"Certificado comercial","",spt_2,file_2,8
+trd_218,iss_59,"Copia documento de identidad","",spt_2,file_2,9
+trd_219,iss_59,"Validaciones de seguridad risk","",spt_2,file_2,10
+trd_220,iss_59,"anexo de visita proveedores","GACO0202.10",spt_2,file_2,11
+trd_221,iss_63,"Incapacidad","",spt_2,file_2,1
+trd_222,iss_63,"Comunicación","",spt_2,file_2,2
+trd_223,iss_64,"Indicador","",spt_2,file_1,1
+trd_224,iss_66,"Información exógena","",spt_1,"",1
+trd_225,iss_66,"Auxiliar información exógena","",spt_1,"",2
+trd_226,iss_67,"Información exógena","",spt_1,"",1
+trd_227,iss_67,"Auxiliar información exógena","",spt_1,"",2
+trd_228,iss_68,"Información exógena","",spt_1,"",1
+trd_229,iss_68,"Auxiliar información exógena","",spt_1,"",1
+trd_230,iss_70,"Comunicación","",spt_2,file_2,1
+trd_231,iss_70,"Informe a ente de control","",spt_2,file_2,2
+trd_232,iss_75,"Informe de fumigación","",spt_2,file_2,1
+trd_233,iss_83,"Informe financiero","",spt_2,file_1,1
+trd_234,iss_92,"Control de correspondencia enviada externa","",spt_2,file_1,1
+trd_235,iss_93,"Control de correspondencia interna","",spt_2,file_1,1
+trd_236,iss_94,"Control de correspondencia recibida externa","",spt_2,file_1,1
+trd_237,iss_96,"Tarjeta de dotación","GASGO201,01",spt_1,"",1
+trd_238,iss_99,"Control de lavado de tanques","",spt_2,file_1,1
+trd_239,iss_109,"Control de seguimiento facturación","",spt_2,file_1,1
+trd_240,iss_116,"Inventario de activos fijos","",spt_2,file_1,1
+trd_241,iss_117,"Inventario de almacén","",spt_2,file_1,1
+trd_242,iss_139,"Desglose detallado de los ingresos y deducciones","",spt_2,file_4,1
+trd_243,iss_139,"Desprendibles de Pago.","",spt_2,file_4,2
+trd_244,iss_139,"Documento soporte de pago de Nómina Electrónica","",spt_2,file_2,3
+trd_245,iss_139,"Libranzas.","",spt_2,file_2,4
+trd_246,iss_139,"Ausentismos remunerados / no remunerados","",spt_2,file_2,5
+trd_247,iss_139,"Registro de turnos","",spt_2,file_4,6
+trd_248,iss_139,"Documento soporte de pago de Nómina Electrónica","",spt_2,file_2,7
+trd_249,iss_140,"Orden de compra"," GACO0201.02",spt_2,file_2,1
+trd_250,iss_146,"Plan de mantenimiento","",spt_2,file_1,1
+trd_251,iss_152,"Presupuesto","",spt_2,file_1,1
+trd_252,iss_179,"Reporte del mantenimiento","",spt_2,file_1,1
+trd_253,iss_180,"Soportes de gastos reembolsables","",spt_1,"",1
+trd_254,iss_181,"Renovación registro mercantil","",spt_1,"",1
+trd_255,iss_181,"Certificado de existencia y representación legal","",spt_1,"",2
+trd_256,iss_183,"Reporte diarios de saldos e ingresos bancarios","",spt_2,file_1,1
+trd_257,iss_183,"Movimientos bancarios","",spt_2,file_2,2
+trd_258,iss_31,"Formato Registro información de Clientes","GCCJ0201.01",spt_2,file_1,1
+trd_259,iss_31,"Consulta Risk","",spt_2,file_2,2
+trd_260,iss_31,"Términos de referencia","",spt_2,file_2,3
+trd_261,iss_31,"Adenda","",spt_2,file_2,4
+trd_262,iss_31,"Formato de la vista técnica","GC0201.02",spt_2,file_2,5
+trd_263,iss_31,"Oferta Técnica","",spt_2,file_2,6
+trd_264,iss_31,"Cotización","",spt_2,file_2,7
+trd_265,iss_31,"Propuesta comercial","",spt_2,file_2,8
+trd_266,iss_31,"Comunicación de asignación / no asignación","",spt_2,file_2,9
+trd_267,iss_31,"Resumen de Adjudicación","",spt_2,file_2,10
+trd_268,iss_31,"Contrato","",spt_2,file_2,11
+trd_269,iss_31,"Póliza","",spt_2,file_2,12
+trd_270,iss_31,"Matriz del contrato. Formato de instalación de Servicio","GOOP0202",spt_2,file_1,13
+trd_271,iss_31,"Comunicación","",spt_2,file_2,14
+trd_272,iss_31,"Conciliación","",spt_2,file_2,15
+trd_273,iss_60,"Selección de proveedores","GACO0202.07",spt_2,file_2,1
+trd_274,iss_60,"formato identificación de proveedores","GACO0202.03",spt_2,file_2,2
+trd_275,iss_60,"Evaluación de proveedores","GACO0202.08",spt_2,file_2,3
+trd_276,iss_60,"visita de proveedores","GACO0101.01",spt_2,file_2,4
+trd_277,iss_60,"Certificado de existencia y representación legal","",spt_2,file_2,5
+trd_278,iss_60,"Rut","",spt_2,file_2,6
+trd_279,iss_60,"Certificado bancario","",spt_2,file_2,7
+trd_280,iss_60,"Certificado comercial","",spt_2,file_2,8
+trd_281,iss_60,"Copia documento de identidad","",spt_2,file_2,9
+trd_282,iss_60,"Validaciones de seguridad risk","",spt_2,file_2,10
+trd_283,iss_60,"anexo de visita proveedores","GACO0202.10",spt_2,file_2,11
+trd_284,iss_12,"Plano lógico","",spt_2,file_2,1
+trd_285,iss_33,"Propuesta comercial","",spt_2,file_2,1
+trd_286,iss_33,"Contrato","",spt_2,file_2,2
+trd_287,iss_33,"OST","",spt_2,file_2,3
+trd_288,iss_33,"Requisición","",spt_2,file_2,4
+trd_289,iss_33,"Reportes de mantenimiento y/o visita técnica","",spt_2,file_2,5
+trd_290,iss_33,"Estudio de seguridad","",spt_2,file_2,6
+trd_291,iss_33,"Actualización de Datos de Usuario","GTPY0208.01",spt_2,file_2,7
+trd_292,iss_33,"Zonificación Sistemas de Alarma","GTPY0208.02",spt_2,file_2,8
+trd_293,iss_33,"Verificación de Datos Ingreso de Clientes","GTPY0208.03",spt_2,file_2,9
+trd_294,iss_33,"Diagrama de Ubicación de Dispositivo","GTPY0208.04",spt_2,file_2,10
+trd_295,iss_33,"Check List de Enlace de Sistema de Alarma","GTPY0208.05",spt_2,file_2,11
+trd_296,iss_90,"Control backups","",spt_2,file_1,1
+trd_297,iss_91,"Control claves de acceso","",spt_2,file_1,1
+trd_298,iss_121,"Inventario elementos de tecnología","",spt_2,file_1,1
+trd_299,iss_121,"Inventario equipos de tecnología","",spt_2,file_1,2
+trd_300,iss_123,"Inventario de software","",spt_2,file_1,1
+trd_301,iss_126,"Licencia","",spt_2,file_2,1
+trd_302,iss_148,"Plan de tecnología","",spt_2,file_1,1
+trd_303,iss_164,"Oferta comercial","",spt_2,file_2,1
+trd_304,iss_167,"Ficha del proyecto","",spt_2,file_1,1
+trd_305,iss_167,"Cronograma","",spt_2,file_1,2
+trd_306,iss_167,"Presupuesto","",spt_2,file_1,3
+trd_307,iss_167,"Informe","",spt_2,file_2,4
+trd_308,iss_5,"Entrega de armamento personal escoltas","GLIT0204.01",spt_1,"",1
+trd_309,iss_6,"Entrega de chalecos antibalas personal de seguridad","GLIT0204.02",spt_1,"",1
+trd_310,iss_7,"Manejo, almacenamiento, embalaje, preservación y entrega de los equipos de intendencia(entrada de almacén intendencia)","GLIT0201.01",spt_1,"",1
+trd_311,iss_7,"Manejo, almacenamiento, embalaje, preservación y entrega de los equipos de intendencia(salida de almacén de intendencia)","GLIT0201.02",spt_1,"",2
+trd_312,iss_10,"Acta de reunión de siniestros","",spt_1,"",1
+trd_313,iss_30,"Propuesta comercial","",spt_2,file_2,1
+trd_314,iss_30,"Contrato","",spt_2,file_2,2
+trd_315,iss_32,"Formato Registro información de Clientes","GCCJ0201.01",spt_2,file_1,1
+trd_316,iss_32,"Consulta Risk","",spt_2,file_2,2
+trd_317,iss_32,"Términos de referencia","",spt_2,file_2,3
+trd_318,iss_32,"Adenda","",spt_2,file_2,4
+trd_319,iss_32,"Formato de la vista técnica","GC0201.02",spt_2,file_2,5
+trd_320,iss_32,"Oferta Técnica","",spt_2,file_2,6
+trd_321,iss_32,"Cotización","",spt_2,file_2,7
+trd_322,iss_32,"Propuesta comercial","",spt_2,file_2,8
+trd_323,iss_32,"Comunicación de asignación / no asignación","",spt_2,file_2,9
+trd_324,iss_32,"Resumen de Adjudicación","",spt_2,file_2,10
+trd_325,iss_32,"Contrato","",spt_2,file_2,11
+trd_326,iss_32,"Póliza","",spt_2,file_2,12
+trd_327,iss_32,"Matriz del contrato. Formato de instalación de Servicio","GOOP0202",spt_2,file_1,13
+trd_328,iss_32,"Comunicación","",spt_2,file_2,14
+trd_329,iss_32,"Conciliación","",spt_2,file_2,15
+trd_330,iss_51,"Hoja de vida","",spt_2,file_1,1
+trd_331,iss_51,"Registro aseo","",spt_2,file_1,2
+trd_332,iss_51,"Registro mantenimiento","",spt_2,file_1,3
+trd_333,iss_51,"Permiso de porte y tenencia","",spt_2,file_2,4
+trd_334,iss_51,"Novedades de armamento","",spt_2,file_1,5
+trd_335,iss_51,"Control de aseo de armas y radios","GLIT0207.01",spt_2,file_1,6
+trd_336,iss_51,"Trámites revalidaciones permisos de armas","",spt_2,file_2,7
+trd_337,iss_51,"Reportes renova armamento","",spt_2,file_2,8
+trd_338,iss_53,"Hoja de vida","",spt_2,file_1,1
+trd_339,iss_53,"Certificado de vacunas","",spt_2,file_1,2
+trd_340,iss_53,"Certificación de fuerza pública","",spt_2,file_1,3
+trd_341,iss_53,"Registro superintendencia","",spt_2,file_2,4
+trd_342,iss_53,"Acreditación alcaldía","",spt_2,file_1,5
+trd_343,iss_53,"Documentos de adopción","",spt_2,file_1,6
+trd_344,iss_53,"Documentos de defunción","",spt_2,file_2,7
+trd_345,iss_54,"Hoja de vida","",spt_2,file_1,1
+trd_346,iss_54,"Asignación","",spt_2,file_1,2
+trd_347,iss_54,"Registro de mantenimiento","",spt_2,file_1,3
+trd_348,iss_55,"Hoja de vida","",spt_2,file_1,1
+trd_349,iss_55,"Asignación","",spt_2,file_1,2
+trd_350,iss_55,"Registro de mantenimiento","",spt_2,file_1,3
+trd_351,iss_78,"Informe de poligrafía","",spt_2,file_2,1
+trd_352,iss_82,"Informe de supervisión","",spt_2,file_2,1
+trd_353,iss_87,"Informe de investigaciones de siniestros","",spt_2,file_2,1
+trd_354,iss_118,"Inventario de armamento","",spt_2,file_1,1
+trd_355,iss_118,"Inventario de armas por puestos","GOOP0202.03",spt_2,file_1,2
+trd_356,iss_119,"Inventario de caninos","",spt_2,file_1,1
+trd_357,iss_115,"Inventario de equipos de comunicaciones","GOOP0202.04",spt_2,file_1,1
+trd_358,iss_120,"Inventario de elementos caninos","",spt_2,file_1,1
+trd_359,iss_122,"Inventario de equipos y/o elementos especiales","",spt_2,file_1,1
+trd_360,iss_122,"Inventario de otros equipos","GOOP0202.05",spt_2,file_1,2
+trd_361,iss_173,"Inducción manejo de armas a escoltas","GLIT0204.03",spt_1,"",1
+trd_362,iss_1,"Certificado de acreditación","",spt_1,"",1
+trd_363,iss_1,"Carnet","",spt_1,"",2
+trd_364,iss_23,"Comunicación","",spt_1,"",1
+trd_365,iss_28,"Hoja de vida","",spt_1,"",1
+trd_366,iss_28,"Contrato de aprendizaje","",spt_1,"",2
+trd_367,iss_28,"Formato de afiliación a la caja de compensación (ccf)","",spt_1,"",3
+trd_368,iss_28,"Formato de afiliación a la eps","",spt_1,"",4
+trd_369,iss_28,"Formato de afiliación a pensiones","",spt_1,"",5
+trd_370,iss_28,"Certificado a la arl","",spt_1,"",6
+trd_371,iss_28,"Comunicación","",spt_1,"",7
+trd_372,iss_34,"Póliza","",spt_2,file_2,1
+trd_373,iss_34,"Comunicación","",spt_2,file_2,2
+trd_374,iss_37,"Convenio","",spt_1,"",1
+trd_375,iss_37,"Comunicación","",spt_1,"",2
+trd_376,iss_61,"Formato de entrevista técnica operativos","GHSD0201.39",spt_1,"",1
+trd_377,iss_61,"Formato de entrevista técnica tácticos","GHSD0201.38",spt_1,"",2
+trd_378,iss_61,"Formato de entrevista técnica estratégicos","GHSD0201.37",spt_1,"",3
+trd_379,iss_61,"Estudio técnico","GHSD0201.04",spt_1,"",4
+trd_380,iss_61,"Referenciación","GHSD0201.20",spt_1,"",5
+trd_381,iss_61,"Prueba de manejador canino","GHSD0201.22",spt_1,"",6
+trd_382,iss_61,"Prueba de Operador de medios","GHSD0201.30",spt_1,"",7
+trd_383,iss_61,"Prueba de Gestor de seguridad","GHSD0201.23",spt_1,"",8
+trd_384,iss_61,"Prueba de Vigilante","GHSD0201.29",spt_1,"",9
+trd_385,iss_61,"Seguridad vial","",spt_1,"",10
+trd_386,iss_61,"Visita domiciliaria","GGGR0301.01",spt_1,"",11
+trd_387,iss_61,"Informe de selección","GASD0201.19",spt_1,"",12
+trd_388,iss_61,"Hoja de vida","",spt_1,"",13
+trd_389,iss_61,"Referencias laborales","",spt_1,"",14
+trd_390,iss_61,"Diploma de bachiller","",spt_1,"",15
+trd_391,iss_61,"Acta de bachiller","",spt_1,"",16
+trd_392,iss_61,"Curso de seguridad","",spt_1,"",17
+trd_393,iss_61,"Antecedentes de la policía","",spt_1,"",18
+trd_394,iss_61,"Antecedentes de la procuraduría","",spt_1,"",19
+trd_395,iss_61,"Libreta militar (opcional)","",spt_1,"",20
+trd_396,iss_61,"Tarjeta de conducta (opcional)","",spt_1,"",21
+trd_397,iss_61,"Fotocopia de la cedula","",spt_1,"",22
+trd_398,iss_61,"Contrato laboral","",spt_1,"",23
+trd_399,iss_61,"Contrato individual de trabajo termino fijo","",spt_1,"",24
+trd_400,iss_61,"Código de ética","GGGR0341.01",spt_1,"",25
+trd_401,iss_61,"Manual de funciones y responsabilidades","",spt_1,"",26
+trd_402,iss_61,"Clausulas adicionales y control de entrega de políticas","",spt_1,"",27
+trd_403,iss_61,"Cláusula adicional","",spt_1,"",28
+trd_404,iss_61,"Oro si 25 días","",spt_1,"",29
+trd_405,iss_61,"Formato plan exequial","",spt_1,"",30
+trd_406,iss_61,"Formularios de asegurabilidad","",spt_1,"",31
+trd_407,iss_61,"Libranza plan exequial","",spt_1,"",32
+trd_408,iss_61,"Control de entrega de políticas institucionales","GHSD0201.15",spt_1,"",33
+trd_409,iss_61,"Consentimiento informado","GGGI0212.05",spt_1,"",34
+trd_410,iss_61,"Consentimiento informado medición riesgo psicosocial","GGGIO106.01",spt_1,"",35
+trd_411,iss_61,"Conocimiento procedimiento reporte de accidentes laborales","GGGI0203.06",spt_1,"",36
+trd_412,iss_61,"Autorización para el tratamiento de datos personales en bases de datos","GHSD0201.15",spt_1,"",37
+trd_413,iss_61,"Registro dactilar","GHSD0201.21",spt_1,"",38
+trd_414,iss_61,"Formato de afiliación a la caja de compensación (ccf)","",spt_1,"",39
+trd_415,iss_61,"Formato de afiliación a la eps","",spt_1,"",40
+trd_416,iss_61,"Formato de afiliación a pensiones","",spt_1,"",41
+trd_417,iss_61,"Certificado a la arl","",spt_1,"",42
+trd_418,iss_61,"Carta de notificación embarazo","",spt_1,"",43
+trd_419,iss_61,"Certificado de defunción","",spt_1,"",44
+trd_420,iss_61,"Edicto","",spt_1,"",45
+trd_421,iss_61,"Reporte a la aseguradora del fallecimiento","",spt_1,"",46
+trd_422,iss_61,"Carta de renuncia","",spt_1,"",47
+trd_423,iss_61,"Comunicación terminación del contrato","",spt_1,"",48
+trd_424,iss_61,"Liquidación","",spt_1,"",49
+trd_425,iss_61,"Paz y salvo","",spt_1,"",50
+trd_426,iss_85,"Informe risk","",spt_2,file_2,1
+trd_427,iss_86,"Informe de actualización de datos altum forms","GHSD0201.02",spt_2,file_1,1
+trd_428,iss_86,"Informe de evaluación del desempeño avancys","GHSD0202.01",spt_2,file_1,2
+trd_429,iss_86,"Informe de evaluación del desempeño avancys","GHSD0202.02",spt_2,file_1,3
+trd_430,iss_86,"Informe de evaluación del desempeño avancys","GHSD0202.03",spt_2,file_1,4
+trd_431,iss_86,"Informe de evaluación del desempeño avancys","GHSD0202.04",spt_2,file_1,5
+trd_432,iss_86,"Informe de evaluación del desempeño altum forms","GHSD0202.05",spt_2,file_1,6
+trd_433,iss_89,"Control alimentación","",spt_2,file_1,1
+trd_434,iss_95,"Registro y control Cursos CEA - VISE","",spt_2,file_1,1
+trd_435,iss_104,"Seguimiento - bdd brigadistas nacional","",spt_2,file_1,1
+trd_436,iss_104,"Seguimiento - bdd curso 50 horas sgsst","",spt_2,file_1,2
+trd_437,iss_104,"Seguimiento - bdd cursos de seguridad por libranza (convenio academias)","",spt_2,file_1,3
+trd_438,iss_104,"Seguimiento - bdd inducción y reinducción vise ltda","",spt_2,file_1,4
+trd_439,iss_104,"Seguimiento - bdd manejo defensivo nacional","",spt_2,file_1,5
+trd_440,iss_104,"Seguimiento - bdd polígono nacional","",spt_2,file_1,6
+trd_441,iss_104,"Seguimiento - bdd requerimiento svsp","",spt_2,file_1,7
+trd_442,iss_104,"Seguimiento - bdd solicitud credenciales y sticker","",spt_2,file_1,8
+trd_443,iss_110,"Control seguimiento pensionados","",spt_2,file_1,1
+trd_444,iss_130,"Matriz de cargos","",spt_2,file_1,1
+trd_445,iss_131,"Matriz de cargos críticos","",spt_2,file_1,1
+trd_446,iss_132,"Matriz de capacitación contrato","",spt_2,file_1,1
+trd_447,iss_142,"Solicitud permiso","",spt_1,"",1
+trd_448,iss_142,"Permiso","",spt_1,"",2
+trd_449,iss_160,"Cronograma de bienestar","",spt_2,file_1,1
+trd_450,iss_161,"Cronograma de capacitación","",spt_2,file_1,1
+trd_451,iss_161,"Matriz de necesidades o formación","",spt_2,file_1,2
+trd_452,iss_169,"Matriz de Selección/Capacitación/Contratación - Aeroportuaria","",spt_2,file_1,1
+trd_453,iss_172,"Listado de asistencia","",spt_2,file_1,1
+trd_454,iss_172,"Certificado de calificaciones","",spt_2,file_1,2
+trd_455,iss_174,"Consolidado cursos mercancías peligrosas","",spt_2,file_1,1
+trd_456,iss_175,"Control evento","",spt_2,file_1,1
+trd_457,iss_175,"Lista de asistencia","",spt_2,file_1,2
+trd_458,iss_175,"Registro fotográfico","",spt_2,file_5,3
+trd_459,iss_3,"Acta actualización del comité de seguridad vial","",spt_1,"",1
+trd_460,iss_4,"Acta de constitución del comité paritario de seguridad y salud en el trabajo","",spt_1,"",1
+trd_461,iss_4,"Acta de copasst","",spt_1,"",2
+trd_462,iss_9,"Acta de revisión por la dirección","",spt_1,"",1
+trd_463,iss_58,"Evaluación medica ocupacional","",spt_2,file_2,1
+trd_464,iss_58,"Control nacional de exámenes médicos con sus recomendaciones y restricciones","",spt_2,file_1,2
+trd_465,iss_58,"Concepto médico ocupacional","",spt_2,file_2,3
+trd_466,iss_65,"Ficha técnica indicadores de gestión","GG0219.01",spt_2,file_1,1
+trd_467,iss_71,"Reporte At - Furat Arl","",spt_2,file_2,1
+trd_468,iss_71,"Procedimiento Reporte de Investigación de Incidentes, Accidentes y Enfermedad Laboral","",spt_2,file_2,2
+trd_469,iss_71,"Versión libre / investigación de accidentes","",spt_2,file_2,3
+trd_470,iss_71,"Investigación de incidentes y casi incidentes","",spt_2,file_2,4
+trd_471,iss_73,"Realización de pruebas de seguridad retake y ejercicios simulados","OP-GHGI0203",spt_2,file_2,1
+trd_472,iss_73,"Elementos para ejercicios simulados","OP-GHGI0203.01",spt_2,file_2,2
+trd_473,iss_73,"Ejercicios simulados","OP-GHGI0203.03",spt_2,file_2,3
+trd_474,iss_77,"Informe de Novedades","OP-GHGI0206.01",spt_1,"",1
+trd_475,iss_77,"Análisis de causa","OP-GHGI0206.02",spt_1,"",2
+trd_476,iss_77,"Acta de compromiso","OP-GHGI0203.02",spt_1,"",3
+trd_477,iss_84,"Lista asistencia auditoria","GG0207.06",spt_2,file_1,1
+trd_478,iss_84,"Agenda de auditoria","GG0207.03",spt_2,file_1,2
+trd_479,iss_84,"Lista chequeo auditoria","GG0207.04",spt_2,file_1,3
+trd_480,iss_84,"Informe auditoria","GG0207.01",spt_2,file_2,4
+trd_481,iss_88,"Cuadro código de dependencias","",spt_2,file_1,1
+trd_482,iss_88,"Índice de series y subseries documentales","",spt_2,file_1,2
+trd_483,iss_88,"Cuadro de clasificación documental - CCD","",spt_2,file_1,3
+trd_484,iss_88,"Tabla de retención documental - TRD","",spt_2,file_1,4
+trd_485,iss_97,"Kardex de entrega","",spt_1,"",1
+trd_486,iss_97,"Base de datos control entrega","",spt_2,file_1,2
+trd_487,iss_100,"Préstamo de Elementos para ejercicios simulados","OP-GHGI0203.05",spt_1,"",1
+trd_488,iss_102,"Consentimiento informado","",spt_1,"",1
+trd_489,iss_102,"Reporte de pruebas de sustancias psicoactivas","",spt_1,"",2
+trd_490,iss_103,"Registro PQR`s","OP-GHGI0207.01",spt_2,file_1,1
+trd_491,iss_106,"Formato seguimiento casos de incidentalidad y morbilidad","",spt_2,file_1,1
+trd_492,iss_107,"Control y seguimiento e PQRS","OP-GHGI0207.02",spt_2,file_1,1
+trd_493,iss_113,"Control solicitud de cambios de documentos","",spt_2,file_1,1
+trd_494,iss_128,"Manual del sistema de gestión","GG0501",spt_2,file_2,1
+trd_495,iss_133,"Base de personal con recomendaciones y restricciones medicas","",spt_2,file_1,1
+trd_496,iss_135,"Matriz de compatibilidad","",spt_2,file_1,1
+trd_497,iss_136,"Matriz comunicaciones","",spt_2,file_1,1
+trd_498,iss_141,"Organigrama","",spt_2,file_1,1
+trd_499,iss_143,"PQR´s","OP-GHGI0207",spt_2,file_2,1
+trd_500,iss_143,"Investigación y Respuesta PQR´s","OP-GHGI0207",spt_2,file_2,2
+trd_501,iss_143,"Informe PQR","OP-GHGI0207.02",spt_2,file_2,3
+trd_502,iss_144,"Formato de control Plan de acción Vise Opain","OP-GHGI0206.05",spt_2,file_1,1
+trd_503,iss_144,"Formulario para registro de Plan de acción Vise -Opain","OP-GHGI0206.06",spt_2,file_1,2
+trd_504,iss_144,"Documento plan de acción y mejoramiento continuo","OP-GHGI0206.07",spt_2,file_1,3
+trd_505,iss_147,"Cronograma  ejercicios simulados","OP-GHGI0203.04",spt_2,file_1,1
+trd_506,iss_147,"Informe de planeación de simulacros","GGGI0105.07",spt_2,file_2,2
+trd_507,iss_149,"Plan de trabajo","",spt_2,file_1,1
+trd_508,iss_150,"Plan estratégico de seguridad vial","",spt_2,file_1,1
+trd_509,iss_150,"Compromiso con los pilares del plan estratégico de seguridad vial para conductores de vise ltda","",spt_2,file_1,2
+trd_510,iss_150,"Matriz de caracterización, evaluación y control de riesgos viales","",spt_2,file_1,3
+trd_511,iss_150,"Plan de trabajo seguridad vial","",spt_2,file_1,4
+trd_512,iss_151,"Política","",spt_2,file_2,1
+trd_513,iss_159,"Programa anual de auditorias","GG0207.05",spt_2,file_1,1
+trd_514,iss_162,"Programa de vigilancia epidemiológica para la prevención de lesiones osteomusculares","",spt_2,file_2,1
+trd_515,iss_162,"Programa de vigilancia epidemiológica para la prevención de enfermedades visuales","",spt_2,file_2,2
+trd_516,iss_162,"Vigilancia epidemiológica para la prevención del riesgo cardiovascular","",spt_2,file_2,3
+trd_517,iss_162,"Programa de vigilancia epidemiológica de factores de riesgo psicosocial en el trabajo","",spt_2,file_2,4
+trd_518,iss_162,"Programa de vigilancia epidemiológica para la prevención de lesiones osteomusculares","",spt_2,file_2,5
+trd_519,iss_162,"Programa de vigilancia epidemiológica  para el control del riesgo físico asociado a la exposición a radiaciones ultravioleta","",spt_2,file_2,6
+trd_520,iss_171,"Planilla de asistencia a capacitaciones","",spt_1,"",1
+trd_521,iss_176,"Listas de chequeo","OP-GHGI0204",spt_1,"",1
+trd_522,iss_176,"Cronograma listas de chequeo","OP-GHGI0204.01",spt_1,"",2
+trd_523,iss_176,"Consolidado listas de chequeo","OP-GHGI0204.02",spt_1,"",3
+trd_524,iss_176,"Lista de chequeo - Armador","OP-GHGI0204.03",spt_1,"",4
+trd_525,iss_176,"Lista de chequeo - Controlador de equipajes","OP-GHGI0204.04",spt_1,"",5
+trd_526,iss_176,"Lista de chequeo - Sistemas de identificación P2000","OP-GHGI0204.05",spt_1,"",6
+trd_527,iss_176,"Lista de chequeo - Inspección vehículos con biosensor","OP-GHGI0204.06",spt_1,"",7
+trd_528,iss_176,"Lista de chequeo - Inspección de personas de DMM","OP-GHGI0204.07",spt_1,"",8
+trd_529,iss_176,"Lista de chequeo - Rayos x","OP-GHGI0204.08",spt_1,"",9
+trd_530,iss_176,"Lista de chequeo - Inspección vehículos","OP-GHGI0204.09",spt_1,"",10
+trd_531,iss_176,"Lista de chequeo - Control ingreso vehículos a zona de carga","OP-GHGI0204.10",spt_1,"",11
+trd_532,iss_176,"Lista de chequeo -Salida de vehículos de zonas de carga","OP-GHGI0204.11",spt_1,"",12
+trd_533,iss_176,"Lista de chequeo - Inspección a personas - Manual","OP-GHGI0204.12",spt_1,"",13
+trd_534,iss_176,"Lista de chequeo - Sistemas de identificación-manual","OP-GHGI0204.13",spt_1,"",14
+trd_535,iss_176,"Lista de chequeo - Pasabordos.","OP-GHGI0204.14",spt_1,"",15
+trd_536,iss_176,"Lista de chequeo - ingresos Alfa 50","OP-GHGI0204.15",spt_1,"",16
+trd_537,iss_176,"Lista de chequeo - Armador over HBS","OP-GHGI0204.16",spt_1,"",17
+trd_538,iss_176,"Lista de chequeo - Estación de trabajo mes","OP-GHGI0204.17",spt_1,"",18
+trd_539,iss_176,"Lista de chequeo - Operador rayos x HBS","OP-GHGI0204.18",spt_1,"",19
+trd_540,iss_176,"Lista de chequeo - Veripax","OP-GHGI0204.19",spt_1,"",20
+trd_541,iss_176,"Lista de chequeo - Traza","OP-GHGI0204.20",spt_1,"",21
+trd_542,iss_176,"Lista de chequeo  Recorredor","OP-GHGI0204.21",spt_1,"",22
+trd_543,iss_176,"Registro visualización de cámaras","OP-GHGI0206.04",spt_1,"",23
+trd_544,iss_185,"Solicitud de Acción de Mejoramiento","GG0207.02",spt_2,file_1,1
+trd_545,iss_186,"Procedimiento","",spt_2,file_2,1
+trd_546,iss_186,"Instructivo","",spt_2,file_2,2
+trd_547,iss_186,"Manual","",spt_2,file_2,3
+trd_548,iss_186,"Protocolo","",spt_2,file_2,4
+trd_549,iss_186,"Programa","",spt_2,file_2,5
+trd_550,iss_186,"Plan","",spt_2,file_2,6
+trd_551,iss_186,"Formato","",spt_2,file_1,7
+trd_552,iss_187,"Gestión de cambio","",spt_2,file_1,1
+trd_553,iss_188,"Listado documentos externos","GG0204.03",spt_2,file_1,1
+trd_554,iss_188,"Listado maestro de documentos","GG0204.01",spt_2,file_1,2

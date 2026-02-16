@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- views/gestion_serie_views.xml -->
+<odoo>
+  <!-- LISTA / TREE -->
+  <record id="view_gestion_subserie_tree" model="ir.ui.view">
+    <field name="name">gestion.subserie.tree</field>
+    <field name="model">gestion.subserie</field>
+    <field name="arch" type="xml">
+      <!-- Atenúa registros inactivos; orden inicial por sequence, name -->
+      <tree string="Subseries" decoration-muted="not active" default_order="sequence,name">
+        <field name="codigo"/>
+        <field name="name"/>
+        <field name="serie_id"/>
+        <field name="sequence" invisible="1"/>
+        <field name="active" widget="boolean_toggle"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- FORM -->
+  <record id="view_gestion_subserie_form" model="ir.ui.view">
+    <field name="name">gestion.subserie.form</field>
+    <field name="model">gestion.subserie</field>
+    <field name="arch" type="xml">
+      <form string="Subserie">
+        <sheet>
+          <group>
+            <field name="serie_id" options="{'no_create_edit': True}" placeholder="Selecciona la serie"/>
+            <field name="codigo"/>
+            <field name="name"/>
+            <field name="sequence" invisible="1"/>
+            <field name="active" widget="boolean_toggle"/>
+            <!-- Campo relacionado útil para buscar/ordenar por código de la serie -->
+            <field name="codigo_serie" readonly="1"/>
+          </group>
+          <notebook invisible="1">
+            <page string="Procedimientos">
+                <group>
+                  <field name="cierre_expediente" placeholder="Instrucciones para el cierre"/>
+                  <field name="procedimiento" placeholder="Ingrese el detalle del procedimiento"/>
+                </group>
+
+
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

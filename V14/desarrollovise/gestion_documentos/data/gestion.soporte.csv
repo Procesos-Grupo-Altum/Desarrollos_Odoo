@@ -1,0 +1,4 @@
+id,codigo,name,abreviatura,sequence,active
+spt_1,1,"Fisico","Fis.",1,1
+spt_2,2,"Electronico","Elec.",2,1
+spt_3,3,"Digital","Dig.",3,1

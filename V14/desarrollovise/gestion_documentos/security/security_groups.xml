@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <!-- Categoría para los grupos del módulo -->
+  <record id="module_category_gestion_documentos" model="ir.module.category">
+    <field name="name">Gestión Documentos</field>
+    <field name="sequence">30</field>
+  </record>
+
+  <!-- Grupo “Usuario” -->
+  <record id="group_gd_juridico_usuario" model="res.groups">
+    <field name="name">Vise Jurídico Usuario</field>
+    <field name="category_id" ref="module_category_gestion_documentos"/>
+    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+  </record>
+
+  <!-- Grupo “Analista” -->
+  <record id="group_gd_juridico_analista" model="res.groups">
+    <field name="name">Vise Jurídico Analista</field>
+    <field name="category_id" ref="module_category_gestion_documentos"/>
+    <field name="implied_ids" eval="[(4, ref('gestion_documentos.group_gd_juridico_usuario'))]"/>
+  </record>
+
+  <!-- Grupo “Administrador” (hereda de Usuario) -->
+  <record id="group_gd_juridico_administrador" model="res.groups">
+    <field name="name">Vise Jurídico Administrador</field>
+    <field name="category_id" ref="module_category_gestion_documentos"/>
+    <field name="implied_ids" eval="[
+        (4, ref('gestion_documentos.group_gd_juridico_analista'))]"/>
+  </record>
+
+</odoo>

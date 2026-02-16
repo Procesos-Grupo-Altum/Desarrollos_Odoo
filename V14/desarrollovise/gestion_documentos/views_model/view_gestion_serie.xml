@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- views/gestion_serie_views.xml -->
+<odoo>
+  <!-- LISTA / TREE -->
+  <record id="view_gestion_serie_tree" model="ir.ui.view">
+    <field name="name">gestion.serie.tree</field>
+    <field name="model">gestion.serie</field>
+    <field name="arch" type="xml">
+      <!-- Se atenúa (gris) cuando active = False; orden por sequence, name -->
+      <tree string="Series" decoration-muted="not active" default_order="sequence,name">
+        <field name="codigo"/>
+        <field name="name"/>
+        <field name="sequence"/>
+        <field name="active" widget="boolean_toggle"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- (Opcional) FORM para abrir desde la lista -->
+  <record id="view_gestion_serie_form" model="ir.ui.view">
+    <field name="name">gestion.serie.form</field>
+    <field name="model">gestion.serie</field>
+    <field name="arch" type="xml">
+      <form string="Serie">
+        <sheet>
+          <group>
+            <field name="codigo"/>
+            <field name="name"/>
+            <field name="sequence"/>
+            <field name="active" widget="boolean_toggle"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

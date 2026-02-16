@@ -3,13 +3,38 @@
 <odoo>
 
     <record id="action_open_pazysalvo" model="ir.actions.act_window">
-            <field name="name">Paz y Salvo</field>
-            <field name="res_model">pazysalvo</field>
-            <field name="view_mode">tree,form</field>
+        <field name="name">Paz y Salvo</field>
+        <field name="res_model">pazysalvo</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_open_viseareas" model="ir.actions.act_window">
+        <field name="name">Vise Areas</field>
+        <field name="res_model">vise.areas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_tipocontractos" model="ir.actions.act_window">
+        <field name="name">Tipos Contratos Áreas Vise</field>
+        <field name="res_model">tipos.contratos.areas.vise</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_responsables" model="ir.actions.act_window">
+        <field name="name">Responsables Áreas Vise</field>
+        <field name="res_model">responsables.areas.vise</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
     <menuitem id="menu_principal" name="Paz y Salvo" web_icon="pazysalvo,static/img/paz_y_salvo.gif"/>
-    <menuitem id="menu_horizontal" name="Paz y Salvo" parent="menu_principal"/>
-    <menuitem id="menu_vertical_pazysalvo" name="Paz y Salvo" parent="menu_horizontal" action="action_open_pazysalvo"/>
+    <menuitem id="menu_horizontal_pazysalvo" name="Paz y Salvo" parent="menu_principal" action="action_open_pazysalvo"/>
+    <menuitem id="menu_horizontal_viseareas" name="Vise Areas" parent="menu_principal" action="action_open_viseareas"/>
+    <menuitem id="menu_horizontal_tipocontractos" name="Tipos Contratos Areas Vise" parent="menu_principal"
+              action="action_open_tipocontractos"/>
+    <menuitem id="menu_horizontal_responsables" name="Responsables Areas Vise" parent="menu_principal"
+              action="action_open_responsables"/>
+    <!--    <menuitem id="menu_vertical_pazysalvo" name="Paz y Salvo" parent="menu_horizontal" action="action_open_pazysalvo"/>-->
+    <!--    <menuitem id="menu_vertical_viseareas" name="Vise Areas" parent="menu_horizontal" action="action_open_viseareas"/>-->
+
+
 </odoo>

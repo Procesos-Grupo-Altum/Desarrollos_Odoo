@@ -1,0 +1,52 @@
+.o_data_cell.text-center {
+    text-align: center !important;
+}
+
+/* Aplica solo a esta vista (gracias a la clase del <tree>) */
+.o_list_view.gd-iss-bordered .o_list_table {
+  border-collapse: collapse;
+}
+
+.o_list_view.gd-iss-bordered .o_list_table thead > tr > th,
+.o_list_view.gd-iss-bordered .o_list_table tbody > tr > td {
+  border: 1px solid #dcdfe6; /* color suave */
+}
+
+/* (Opcional) bordes externos */
+.o_list_view.gd-iss-bordered .o_list_table {
+  border: 1px solid #dcdfe6;
+  border-radius: 6px;
+  overflow: hidden; /* para que el radio se vea */
+}
+
+/* (Opcional) rayas de filas + hover */
+.o_list_view.gd-iss-bordered .o_list_table tbody > tr:nth-child(odd) {
+  background: #fafafa;
+}
+.o_list_view.gd-iss-bordered .o_list_table tbody > tr:hover > td {
+  background: #f5f7fa;
+}
+
+/* 1) Rompe el flex del wrapper para permitir ancho fijo */
+.o_form_view .o_field_widget.w-50 {
+  flex: 0 0 auto !important;     /* clave */
+  width: 50px !important;
+  min-width: 50px !important;
+  max-width: 50px !important;
+  box-sizing: border-box;
+}
+
+/* 2) Ajusta el input real (incluye dropdown de many2one) */
+.o_form_view .o_field_widget.w-50 .o_input,
+.o_form_view .o_field_widget.w-50 .o_input_dropdown {
+  width: 100% !important;         /* rellena el wrapper de 50px */
+  min-width: 0 !important;
+  text-align: center !important;
+}
+
+/* (Opcional) si el input viene con display:flex en algún tema */
+.o_form_view .o_field_widget.w-50 .o_input,
+.o_form_view .o_field_widget.w-50 .o_input_dropdown {
+  flex: 0 0 auto !important;
+}
+

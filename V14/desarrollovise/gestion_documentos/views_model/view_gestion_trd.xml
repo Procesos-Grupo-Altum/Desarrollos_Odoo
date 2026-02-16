@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- ===== TREE ===== -->
+  <record id="view_gestion_trd_tree" model="ir.ui.view">
+    <field name="name">gestion.trd.tree</field>
+    <field name="model">gestion.trd</field>
+    <field name="arch" type="xml">
+      <tree
+        string="Tabla de Retención Documental"
+        decoration-muted="not active"
+        default_order="sequence, dep_grupo, ser_grupo, sub_grupo, name"
+        >
+
+        <field name="sequence" widget="handle"/>
+        <field name="codigo_dependencia" string="DE"/>
+        <field name="codigo_serie" string="SE"/>
+        <field name="codigo_subserie" string="SB"/>
+        <field name="name"/>
+        <field name="codigo_formato"/>
+        <field name="soporte_ids" widget="many2many_tags"/>
+        <field name="file_extension_id"/>
+        <field name="iss_id" invisible="1"/>
+        <field name="active" widget="boolean_toggle" invisible="1"/>
+
+
+      </tree>
+    </field>
+  </record>
+
+  <!-- ===== FORM ===== -->
+  <record id="view_gestion_trd_form" model="ir.ui.view">
+    <field name="name">gestion.trd.form</field>
+    <field name="model">gestion.trd</field>
+    <field name="arch" type="xml">
+      <form string="Tabla de Retención Documental"
+        create="false" edit="false" delete="false" duplicate="false">
+        <sheet>
+
+          <group col="2">
+            <group>
+              <field name="codigo_formato" required="0"/>
+              <field name="name" required="1"/>
+              <field name="sequence" invisible="1"/>
+              <field name="active" widget="boolean_toggle"/>
+<!--              <field name="company_id" invisible="1"/>-->
+            </group>
+            <group>
+              <field name="file_extension_id" options="{'no_create': True, 'no_open': True}"/>
+              <field name="soporte_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
+              <field name="res_model" placeholder="Nombre técnico del modelo"/>
+              <field name="domain" placeholder="[('field','=','value')]"/>
+            </group>
+          </group>
+
+          <separator string="Relaciones ISS" colspan="2"/>
+
+          <group col="3">
+            <field name="iss_id" options="{'no_create_edit': True}"/>
+            <field name="codigo_dependencia" readonly="1"/>
+            <field name="codigo_serie" readonly="1"/>
+            <field name="codigo_subserie" readonly="1"/>
+          </group>
+
+        </sheet>
+        <sheet>
+          <field name="soportes_relacionados_ids"/>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_gestion_trd_search" model="ir.ui.view">
+    <field name="name">gestion.trd.search</field>
+    <field name="model">gestion.trd</field>
+    <field name="arch" type="xml">
+      <search string="Buscar TRD">
+
+        <field name="name"/>
+
+        <group expand="0" string="Agrupar por">
+          <filter name="grp_dep" string="Dependencia"
+                  context="{'group_by':'dep_grupo'}"/>
+          <filter name="grp_ser" string="Serie"
+                  context="{'group_by':'ser_grupo'}"/>
+          <filter name="grp_sub" string="Subserie"
+                  context="{'group_by':'sub_grupo'}"/>
+        </group>
+      </search>
+    </field>
+</record>
+
+
+
+
+  <record id="view_gestion_trd_pivot" model="ir.ui.view">
+    <field name="name">gestion.trd.pivot</field>
+    <field name="model">gestion.trd</field>
+    <field name="arch" type="xml">
+      <pivot string="TRD">
+        <field name="iss_id" type="row"/>
+        <field name="codigo_dependencia" type="row"/>
+        <field name="codigo_serie" type="row"/>
+        <field name="codigo_subserie" type="row"/>
+
+        <!-- Medida obligatoria -->
+        <field name="id" type="measure" operator="count" string="Registros"/>
+        <!-- Ejemplo adicional:
+        <field name="sequence" type="measure" operator="avg" string="Seq Prom."/> -->
+      </pivot>
+    </field>
+  </record>
+
+
+
+
+</odoo>

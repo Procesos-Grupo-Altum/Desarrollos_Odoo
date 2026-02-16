@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_gestion_iss_tree" model="ir.ui.view">
+        <field name="name">gestion.iss.tree</field>
+        <field name="model">gestion.iss</field>
+        <field name="arch" type="xml">
+            <tree string="Índice de Series y Subseries Documentales (ISS)" class="gd-iss-bordered">
+                <field name="sequence" string="Secuencia" invisible="1"/>
+                <field name="name" string="Nombre" invisible="1"/>
+                <field name="codigo_serie" string="Código Serie" class="text-center"/>
+                <field name="nombre_serie" string="Serie"/>
+                <field name="codigo_subserie" string="Código Subserie" class="text-center"/>
+                <field name="nombre_subserie" string="Subserie"/>
+                <field name="codigo_principal" string="Código General" class="text-center"/>
+                <field name="disposicion_ag" string="AG" class="text-center"/>
+                <field name="disposicion_ac" string="AC" class="text-center"/>
+                <field name="disposicion_final_ids" string="Disposiciones Finales" widget="many2many_tags" class="text-center"/>
+                <field name="reproduccion_tecnica" string="Reproducción Técnica" widget="boolean_toggle" class="text-center"/>
+                <field name="estado_serie" string="Estado Serie" widget="boolean_toggle" class="text-center"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_gestion_iss_form" model="ir.ui.view">
+        <field name="name">gestion.iss.form</field>
+        <field name="model">gestion.iss</field>
+        <field name="arch" type="xml">
+            <form string="Índice de Series y Subseries Documentales (ISS)">
+                <sheet>
+
+
+                    <table style="width:100%; border-collapse:collapse;">
+                        <tr style="border-bottom:2px solid #000;">
+                            <td style="width:80px; padding:10px; vertical-align:middle;">
+                                <img alt="Logo Vise" src="https://www.vise.com.co/images/logos/logo.png" style="max-height:50px; display:block;"/>
+                            </td>
+                            <td style="padding:10px; vertical-align:middle; text-align:center;">
+                                <strong>VISE LTDA</strong><br/>
+                                <span style="font-size:14px;">Índice de Series y Sub Series Documentales</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <group col="2">
+                        <!-- Primera Columna -->
+                        <group >
+                            <field name="name" string="Nombre" readonly="1"/>
+                            <field name="nombre_serie" string="Serie" readonly="1"/>
+                            <field name="nombre_subserie" string="Subserie" required="1" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                            <field name="disposicion_final_ids" string="Disposiciones Finales" widget="many2many_tags" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                            <field name="nombre_depen" string="Nombre de la Dependencia" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                            <field name="disposicion_ag" string="AG" class="oe_inline w-50"/>
+
+
+
+                        </group>
+
+                        <!-- Segunda Columna -->
+                        <group>
+                            <field name="codigo_principal" string="Código General" readonly="1"/>
+                            <field name="codigo_serie" string="Código Serie" readonly="1"/>
+                            <field name="codigo_subserie" string="Código Subserie" readonly="1"/>
+
+                            <field name="estado_serie" string="Estado Serie" readonly="1" widget="boolean_toggle"/>
+                            <field name="reproduccion_tecnica" string="Reproducción Técnica del Papel" widget="boolean_toggle"/>
+                            <field name="disposicion_ac" string="AC" class="oe_inline w-50"/>
+
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Registros">
+                            <group col="1" string="Registros Documentales">
+                                <field name="trd_ids"
+                                       nolabel="1"
+                                       mode="tree,form"
+                                       context="{'default_iss_id': active_id}">
+                                    <tree editable="bottom">
+                                      <!-- Campos REQUERIDOS deben estar en la grilla -->
+                                      <field name="name" string="Nombre de la TRD" required="1"/>
+                                      <field name="codigo_formato" required="0"/>
+                                      <field name="soporte_ids" widget="many2many_tags"/>
+                                      <field name="file_extension_id" required="0" options="{'no_create': True}"/>
+
+                                      <field name="active" widget="boolean_toggle" invisible="1"/>
+                                    </tree>
+                                 </field>
+                            </group>
+                        </page>
+                        <page string="Procedimientos de Archivo">
+                            <group>
+                                <field name="cierre_exp" />
+                                <field name="procedimiento"/>
+                            </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+</odoo>

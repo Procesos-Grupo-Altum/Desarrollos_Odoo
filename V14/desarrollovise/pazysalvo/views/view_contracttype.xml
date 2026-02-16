@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="view_form_hr_contract_type" model="ir.ui.view">
+        <field name="name">hr.contract.type.form</field>
+        <field name="model">hr.contract.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="2">
+                        <group>
+                            <field name="name"/>
+                            <field name="type_class"/>
+                            <field name="company_id"/>
+                            <field name="required_date_end"/>
+                        </group>
+                        <group>
+                            <field name="term"/>
+                            <field name="section"/>
+                            <field name="epayroll_type"/>
+                            <field name="restrict_schedule" attrs="{'invisible':[('term','!=','obra-labor')]}"/>
+                            <field name="allow_replace_obra_labor"/>
+                        </group>
+
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+</odoo>
