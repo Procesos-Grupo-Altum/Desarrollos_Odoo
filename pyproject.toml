@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api-conexion-vise"
+version = "0.1.0"
+description = "Librería interna para automatizaciones Odoo - VISE"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "Automatizaciones"}
+packages = ["api_conexion_vise"]
+
+[tool.setuptools.package-data]
+api_conexion_vise = ["**/*.py"]
